@@ -7,11 +7,16 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import SubmitBtn from './UI/submit-btn';
 
-const LoginForm = () => {
+type AuthForm = {
+  mode?: string;
+};
+
+const AuthForm = ({ mode }: AuthForm) => {
   const [userData, setUserData] = useState({
     email: '',
     password: '',
   });
+  const isLoginMode = mode !== '/register';
   const userDataHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
     console.log(e.target.name);
@@ -31,7 +36,7 @@ const LoginForm = () => {
       <div className=' relative py-[20px]  lg:py-[50px] flexCenter flex-col'>
         <h2
           className={`${tilt_neon.className} text-3xl lg:text-4xl text-[var(--mainColor)] mb-6 tracking-widest`}>
-          Login
+          {isLoginMode ? 'Login' : 'Register'}
         </h2>
         <form className='w-full text-center flexCenter flex-col'>
           <div>
@@ -49,14 +54,31 @@ const LoginForm = () => {
               value={userData.password}
               spanName='Password:'
             />
+            {!isLoginMode && (
+              <Input
+                name='repeatPassword'
+                onChange={userDataHandler}
+                type='repeatPassword'
+                value={userData.password}
+                spanName='Repeat password:'
+              />
+            )}
           </div>
 
-          <SubmitBtn onClick={handleLogin}>Login</SubmitBtn>
+          <SubmitBtn onClick={handleLogin}>
+            {isLoginMode ? 'Login' : 'Create account'}
+          </SubmitBtn>
         </form>
-        <p className='mt-5'>You dont have an account yet?</p>
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Link href='/home' className='text-[var(--blue)]'>
-            Create an account
+        {isLoginMode && <p className='mt-5'>You dont have an account yet?</p>}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95, shadow: 'black' }}
+          transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+          className={`${!isLoginMode && 'mt-5'}`}>
+          <Link
+            href={isLoginMode ? '/register' : '/'}
+            className='text-[var(--blue)] '>
+            {isLoginMode ? 'Create an account' : 'Back to login'}
           </Link>
         </motion.div>
       </div>
@@ -64,4 +86,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default AuthForm;

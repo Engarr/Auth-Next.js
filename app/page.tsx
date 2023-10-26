@@ -1,6 +1,6 @@
 'use client';
 
-import LoginForm from '@/components/login-form';
+import AuthForm from '@/components/auth-form';
 import { tilt_neon } from '@/lib/fonts';
 import { motion } from 'framer-motion';
 // import { CgGym } from 'react-icons/cg';
@@ -17,7 +17,7 @@ export default function Home() {
           <CgGym />
         </span> */}
       </motion.h1>
-      <LoginForm />
+      <AuthForm />
     </main>
   );
 }
