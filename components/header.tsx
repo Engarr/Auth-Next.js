@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import MenuToggleButton from './menu-toggle-button';
 import { motion } from 'framer-motion';
 import Navigation from './navigation';
+import Logo from './logo';
 
 const Header = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
@@ -33,6 +34,7 @@ const Header = () => {
   };
   return (
     <header>
+      <Logo />
       <motion.nav
         className='relative'
         initial={false}

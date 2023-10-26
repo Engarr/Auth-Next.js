@@ -6,8 +6,9 @@
   --background: #f1f5f9;
   --white: #ffffff;
   --blue: #1e90ff;
-  --mainColor: rgb(154, 205, 50);
-  --mainColorOpacity30: rgb(154, 205, 50, 0.3);
+  --mainColor: #9acd32;
+  --mainColorOpacity30: #9acd324d;
+  --mainColorOpacity60: rgba(154, 205, 50, 0.6);
 }
 
 /* @media (prefers-color-scheme: dark) {

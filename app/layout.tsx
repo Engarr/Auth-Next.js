@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { inter } from '@/lib/fonts';
 import './globals.css';
-import Header from '@/components/header';
-
-const inter = Inter({ subsets: ['latin'] });
+import AuthProvider from '@/context/AuthProvider';
+import Logo from '@/components/logo';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,10 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
-        <Header />
+      {/* <AuthProvider> */}
+      <body
+        className={`${inter.className} bg-gradient-to-tr from-blue-700 via-blue-800 to-gray-900`}>
         {children}
       </body>
+      {/* </AuthProvider> */}
     </html>
   );
 }
