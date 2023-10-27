@@ -15,18 +15,34 @@ const AuthForm = ({ mode }: AuthForm) => {
   const [userData, setUserData] = useState({
     email: '',
     password: '',
+    repeatPassword: '',
   });
   const isLoginMode = mode !== '/register';
   const userDataHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    console.log(e.target.name);
     setUserData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const handleLogin = () => {};
+  const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    try {
+      const res = await fetch('api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: userData.email,
+          password: userData.password,
+        }),
+      });
+      console.log(res.ok);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <motion.div
       className='absolute h-auto w-[95%] lg:w-[600px] shadow-lg left-1/2 top-[100px] lg:top-[180px] rounded-sm bg-white/40 '
@@ -59,7 +75,7 @@ const AuthForm = ({ mode }: AuthForm) => {
                 name='repeatPassword'
                 onChange={userDataHandler}
                 type='repeatPassword'
-                value={userData.password}
+                value={userData.repeatPassword}
                 spanName='Repeat password:'
               />
             )}

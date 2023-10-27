@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 type SubmitBtnType = {
   children: React.ReactNode;
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const SubmitBtn = ({ children, onClick }: SubmitBtnType) => {
