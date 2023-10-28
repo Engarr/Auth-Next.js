@@ -18,6 +18,7 @@ const Input = ({ value, type, name, onChange, spanName }: InpuType) => {
         name={name}
         value={value}
         placeholder=''
+        autoComplete=''
         onChange={onChange}
         className='shadow-lg p-[20px] w-[90%] lg:w-[75%] rounded-sm outline-none placeholder:text-transparent peer  bg-gray-100/50 border-gray-200 
         focus-within:border-[var(--mainColorOpacity60)] border-2 transition-all duration-300 mb-5 lg:mb-10'

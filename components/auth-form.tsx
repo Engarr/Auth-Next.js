@@ -6,6 +6,9 @@ import Input from './UI/input';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import SubmitBtn from './UI/submit-btn';
+import { login, register } from '@/lib/auth-functions';
+import { useRouter } from 'next/navigation';
+import { authFormsValidation } from '@/lib/inputs-validation';
 
 type AuthForm = {
   mode?: string;
@@ -17,6 +20,7 @@ const AuthForm = ({ mode }: AuthForm) => {
     password: '',
     repeatPassword: '',
   });
+  const router = useRouter();
   const isLoginMode = mode !== '/register';
   const userDataHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserData((prevData) => ({
@@ -27,18 +31,27 @@ const AuthForm = ({ mode }: AuthForm) => {
 
   const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    const { email, password, repeatPassword } = userData;
+    const validationResult = authFormsValidation({
+      email,
+      password,
+      repeatPassword,
+      isLoginMode,
+    });
+    if (!userData.email || !userData.password) {
+      return;
+    }
+
     try {
-      const res = await fetch('api/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: userData.email,
-          password: userData.password,
-        }),
-      });
-      console.log(res.ok);
+      if (isLoginMode) {
+        const res = await login(userData.email, userData.password);
+        if (res?.ok) {
+          router.push('/home');
+        }
+      } else {
+        const res = await register(userData.email, userData.password);
+        console.log(res?.ok);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -88,7 +101,7 @@ const AuthForm = ({ mode }: AuthForm) => {
         {isLoginMode && <p className='mt-5'>You dont have an account yet?</p>}
         <motion.div
           whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95, shadow: 'black' }}
+          whileTap={{ scale: 0.95 }}
           transition={{ type: 'spring', stiffness: 400, damping: 10 }}
           className={`${!isLoginMode && 'mt-5'}`}>
           <Link

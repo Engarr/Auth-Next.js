@@ -9,8 +9,8 @@ type AuthProviderType = {
   // session: ;
 };
 
-const AuthProvider = ({ children, session }: AuthProviderType) => {
-  return <SessionProvider session={session}>{children}</SessionProvider>;
+const AuthProvider = ({ children }: AuthProviderType) => {
+  return <SessionProvider>{children}</SessionProvider>;
 };
 
 export default AuthProvider;
