@@ -25,12 +25,13 @@ export const authFormsValidation = ({
     password: '',
     repeatPassword: '',
   };
-
-  if (!isEmailValid(email)) {
-    errorMessage = {
-      ...errorMessage,
-      email: 'Please enter a valid email address. ',
-    };
+  if (!isLoginMode) {
+    if (!isEmailValid(email)) {
+      errorMessage = {
+        ...errorMessage,
+        email: 'Please enter a valid email address. ',
+      };
+    }
 
     if (!isPasswordValid(password)) {
       errorMessage = {
@@ -40,14 +41,18 @@ export const authFormsValidation = ({
       };
     }
 
-    if (
-      !isLoginMode &&
-      isPasswordValid(password) &&
-      password !== repeatPassword
-    ) {
+    if (isPasswordValid(password) && password !== repeatPassword) {
       errorMessage = {
         ...errorMessage,
         repeatPassword: 'Passwords must be the same ',
+      };
+    }
+  } else {
+    if (email === '' || password === '') {
+      errorMessage = {
+        email: 'This field cannot be empty',
+        password: 'This field cannot be empty',
+        repeatPassword: '',
       };
     }
   }
