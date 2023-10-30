@@ -1,110 +1,71 @@
 'use client';
 
 import { tilt_neon } from '@/lib/fonts';
-import { useState } from 'react';
 import Input from './UI/input';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import SubmitBtn from './UI/submit-btn';
-import { login, register } from '@/lib/auth-functions';
 import { useRouter } from 'next/navigation';
-import { authFormsValidation } from '@/lib/inputs-validation';
-import MessagePopup from './UI/message-popup';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'react-hot-toast';
+
+import {
+  loginSchema,
+  signUpSchema,
+  TSignUpSchema,
+  TLoginSchema,
+} from '@/lib/type';
+import { login, signUser } from '@/lib/auth-functions';
 
 type AuthForm = {
   mode?: string;
 };
 
 const AuthForm = ({ mode }: AuthForm) => {
-  const [userData, setUserData] = useState({
-    email: '',
-    password: '',
-    repeatPassword: '',
-  });
-  const [userDataErrors, setUserDataErrors] = useState({
-    email: '',
-    password: '',
-    repeatPassword: '',
-  });
-  const [messageOptions, setMessageOptions] = useState({
-    visible: false,
-    message: '',
-    type: '',
-  });
   const router = useRouter();
   const isLoginMode = mode !== '/register';
+  const schemaMod = isLoginMode ? loginSchema : signUpSchema;
 
-  const userDataHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setUserData((prevData) => ({ ...prevData, [name]: value }));
-    setUserDataErrors((prev) => ({ ...prev, [name]: '' }));
-  };
-
-  const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const { email, password, repeatPassword } = userData;
-    const validationResult = authFormsValidation({
-      email,
-      password,
-      repeatPassword,
-      isLoginMode,
-    });
-    if (Object.values(validationResult).some((value) => value !== '')) {
-      setUserDataErrors({
-        email: validationResult.email,
-        password: validationResult.password,
-        repeatPassword: validationResult.repeatPassword,
-      });
-      return;
-    }
-
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setError,
+    clearErrors,
+    formState: { errors, isSubmitting },
+  } = useForm<TSignUpSchema | (TLoginSchema & { repeatPassword?: string })>({
+    resolver: zodResolver(schemaMod),
+  });
+  const onSubmit = async (data: TSignUpSchema | TLoginSchema) => {
     try {
       if (isLoginMode) {
-        const res = await login(userData.email, userData.password);
-
-        if (res?.ok) {
-          setMessageOptions({
-            visible: true,
-            message: 'Hello! You have been logged in!.',
-            type: 'success',
-          });
-          setTimeout(() => {
-            router.push('/home');
-          }, 3000);
-        }
-        if (res?.error) {
-          setMessageOptions({
-            visible: true,
-            message: 'Incorrect email or password.',
-            type: 'error',
-          });
-          return;
+        const response = await login(data.email, data.password);
+        if (response?.ok) {
+          toast.success('You are logged in');
+          router.push('/home');
+          reset();
+        } else {
+          toast.error('The user could not be authenticated');
         }
       } else {
-        const res = await register(userData.email, userData.password);
-        if (res?.ok) {
-          setMessageOptions({
-            visible: true,
-            message: 'Account created. You can login now.',
-            type: 'success',
-          });
-          setTimeout(() => {
-            router.push('/');
-          }, 3000);
-        } else if (res.status === 500) {
-          const responseJson = await res.json();
-          setMessageOptions({
-            visible: true,
-            message: responseJson.message,
-            type: 'error',
-          });
-          return;
+        const response = await signUser(data.email, data.password);
+        if (response.ok) {
+          toast.success('Account created. You can login now');
+          router.push('/');
+          reset();
+        } else if (response.status === 500) {
+          const responseJson = await response.json();
+          toast.error(responseJson.message);
+        } else {
+          toast.error('Something went wrong, try again later...');
         }
       }
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <>
       <motion.div
@@ -117,37 +78,40 @@ const AuthForm = ({ mode }: AuthForm) => {
             className={`${tilt_neon.className} text-3xl lg:text-4xl text-[var(--mainColor)] mb-10 lg:mb-6 tracking-widest`}>
             {isLoginMode ? 'Login' : 'Register'}
           </h2>
-          <form className='w-full text-center flexCenter flex-col'>
+
+          <form
+            className='w-full text-center flexCenter flex-col'
+            onSubmit={handleSubmit(onSubmit)}>
             <div className=' w-full lg:w-[75%] '>
               <Input
                 name='email'
-                onChange={userDataHandler}
                 type='text'
-                value={userData.email}
                 spanName='E-mail:'
-                errorMessage={userDataErrors.email}
+                register={register('email')}
+                errorMessage={errors.email?.message}
+                onChange={() => clearErrors('email')}
               />
               <Input
                 name='password'
-                onChange={userDataHandler}
                 type='password'
-                value={userData.password}
                 spanName='Password:'
-                errorMessage={userDataErrors.password}
+                register={register('password')}
+                errorMessage={errors.password?.message}
+                onChange={() => clearErrors('password')}
               />
               {!isLoginMode && (
                 <Input
                   name='repeatPassword'
-                  onChange={userDataHandler}
                   type='password'
-                  value={userData.repeatPassword}
                   spanName='Repeat password:'
-                  errorMessage={userDataErrors.repeatPassword}
+                  register={register('repeatPassword')}
+                  errorMessage={errors.repeatPassword?.message}
+                  onChange={() => clearErrors('repeatPassword')}
                 />
               )}
             </div>
 
-            <SubmitBtn onClick={handleLogin}>
+            <SubmitBtn isSubmitting={isSubmitting}>
               {isLoginMode ? 'Login' : 'Create account'}
             </SubmitBtn>
           </form>
@@ -165,12 +129,6 @@ const AuthForm = ({ mode }: AuthForm) => {
           </motion.div>
         </div>
       </motion.div>
-      <MessagePopup
-        visible={messageOptions.visible}
-        setHideAction={setMessageOptions}
-        message={messageOptions.message}
-        type={messageOptions.type}
-      />
     </>
   );
 };

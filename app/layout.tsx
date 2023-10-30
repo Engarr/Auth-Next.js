@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { inter } from '@/lib/fonts';
 import './globals.css';
 import AuthProvider from '@/context/AuthProvider';
-import Logo from '@/components/logo';
+import Toast from '@/components/UI/toast';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <AuthProvider>
-        <body className={`${inter.className} `}>{children}</body>
+        <body className={`${inter.className} `}>
+          <Toast />
+          {children}
+        </body>
       </AuthProvider>
     </html>
   );

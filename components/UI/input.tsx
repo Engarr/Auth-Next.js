@@ -3,23 +3,24 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
+import { UseFormRegisterReturn } from 'react-hook-form';
 
 type InpuType = {
-  value: string;
   type: string;
   name: string;
   spanName: string;
   errorMessage?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  register: UseFormRegisterReturn;
+  onChange: () => void;
 };
 
 const Input = ({
-  value,
   type,
   name,
-  onChange,
   spanName,
   errorMessage,
+  register,
+  onChange,
 }: InpuType) => {
   const borderColor = !errorMessage ? 'border-gray-200' : 'border-red-400 ';
   const spanBorderColor = !errorMessage
@@ -31,11 +32,10 @@ const Input = ({
         <input
           type={type}
           id={name}
-          name={name}
-          value={value}
+          {...register}
+          onChange={onChange}
           placeholder=''
           autoComplete=''
-          onChange={onChange}
           className={`shadow-lg p-[0.75rem] w-[90%] lg:w-full rounded-sm outline-none placeholder:text-transparent peer  bg-gray-100/50 ${borderColor} 
         focus-within:border-[var(--mainColorOpacity60)] border-2 transition-all duration-300 `}
         />

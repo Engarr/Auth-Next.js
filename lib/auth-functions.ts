@@ -1,6 +1,6 @@
 import { signIn } from 'next-auth/react';
 
-export const register = async (email: string, password: string) => {
+export const signUser = async (email: string, password: string) => {
   const res = await fetch('api/register', {
     method: 'POST',
     headers: {
