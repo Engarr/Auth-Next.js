@@ -46,7 +46,7 @@ const AuthForm = ({ mode }: AuthForm) => {
           router.push('/home');
           reset();
         } else {
-          toast.error('The user could not be authenticated');
+          toast.error('Incorrect email or password.');
         }
       } else {
         const response = await signUser(data.email, data.password);

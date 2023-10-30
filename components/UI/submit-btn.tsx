@@ -10,7 +10,7 @@ const SubmitBtn = ({ children, isSubmitting }: SubmitBtnType) => {
   return (
     <motion.button
       type='submit'
-      // disabled={isSubmitting}
+      disabled={isSubmitting}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: 'spring', stiffness: 400, damping: 10 }}
