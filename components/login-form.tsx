@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
@@ -16,12 +17,14 @@ import Loader from './UI/loader';
 
 const LoginForm = () => {
   const router = useRouter();
+  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
   const {
     register,
     handleSubmit,
     reset,
     clearErrors,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+
+    formState: { errors, isSubmitting },
   } = useForm<TLoginSchema>({
     resolver: zodResolver(loginSchema),
   });
@@ -32,14 +35,15 @@ const LoginForm = () => {
         toast.success('You are logged in');
         router.push('/home');
         reset();
+        setIsSubmitSuccessful(true);
       } else {
         toast.error('Incorrect email or password.');
+        setIsSubmitSuccessful(false);
       }
     } catch (error) {
       console.log(error);
     }
   };
-  console.log(isSubmitSuccessful);
   return (
     <motion.div
       className='absolute h-auto w-[95%] lg:w-[600px] shadow-lg left-1/2 top-[100px] lg:top-[180px] rounded-sm bg-white/40 '

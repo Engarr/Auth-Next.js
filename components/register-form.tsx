@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { tilt_neon } from '@/lib/fonts';
 import Input from './UI/input';
 import { motion } from 'framer-motion';
@@ -16,6 +17,7 @@ import Loader from './UI/loader';
 
 const RegisterUser = () => {
   const router = useRouter();
+  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
 
   const {
     register,
@@ -23,7 +25,7 @@ const RegisterUser = () => {
     reset,
     setError,
     clearErrors,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm<TSignUpSchema>({
     resolver: zodResolver(signUpSchema),
   });
@@ -32,11 +34,13 @@ const RegisterUser = () => {
       const response = await signUser(data.email, data.password);
       if (response.ok) {
         toast.success('Account created. You can login now');
+        setIsSubmitSuccessful(true);
         router.push('/');
         reset();
       } else if (response.status === 500) {
         const responseJson = await response.json();
         toast.error(responseJson.message);
+        setIsSubmitSuccessful(false);
       } else {
         toast.error('Something went wrong, try again later...');
       }
