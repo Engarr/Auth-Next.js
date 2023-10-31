@@ -33,7 +33,7 @@ const AuthForm = ({ mode }: AuthForm) => {
     reset,
     setError,
     clearErrors,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<TSignUpSchema | (TLoginSchema & { repeatPassword?: string })>({
     resolver: zodResolver(schemaMod),
   });
@@ -111,7 +111,9 @@ const AuthForm = ({ mode }: AuthForm) => {
               )}
             </div>
 
-            <SubmitBtn isSubmitting={isSubmitting}>
+            <SubmitBtn
+              isSubmitting={isSubmitting}
+              isSubmitSuccessful={isSubmitSuccessful}>
               {LoginUser ? 'Login' : 'Create account'}
             </SubmitBtn>
           </form>
