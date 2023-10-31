@@ -3,13 +3,7 @@ import User from '@/models/user';
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcrypt';
 
-type RegisterType = {
-  json():
-    | { email: string; password: string }
-    | PromiseLike<{ email: string; password: string }>;
-};
-
-export async function POST(req: RegisterType) {
+export async function POST(req: Request) {
   const { email, password } = await req.json();
 
   try {

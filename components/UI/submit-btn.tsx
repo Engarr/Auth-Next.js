@@ -4,13 +4,18 @@ import { motion } from 'framer-motion';
 type SubmitBtnType = {
   children: React.ReactNode;
   isSubmitting: boolean;
+  isSubmitSuccessful: boolean;
 };
 
-const SubmitBtn = ({ children, isSubmitting }: SubmitBtnType) => {
+const SubmitBtn = ({
+  children,
+  isSubmitting,
+  isSubmitSuccessful,
+}: SubmitBtnType) => {
   return (
     <motion.button
       type='submit'
-      disabled={isSubmitting}
+      disabled={isSubmitting || isSubmitSuccessful}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: 'spring', stiffness: 400, damping: 10 }}

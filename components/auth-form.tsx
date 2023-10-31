@@ -24,8 +24,8 @@ type AuthForm = {
 
 const AuthForm = ({ mode }: AuthForm) => {
   const router = useRouter();
-  const isLoginMode = mode !== '/register';
-  const schemaMod = isLoginMode ? loginSchema : signUpSchema;
+  const LoginUser = mode !== '/register';
+  const schemaMod = LoginUser ? loginSchema : signUpSchema;
 
   const {
     register,
@@ -39,7 +39,7 @@ const AuthForm = ({ mode }: AuthForm) => {
   });
   const onSubmit = async (data: TSignUpSchema | TLoginSchema) => {
     try {
-      if (isLoginMode) {
+      if (LoginUser) {
         const response = await login(data.email, data.password);
         if (response?.ok) {
           toast.success('You are logged in');
@@ -76,7 +76,7 @@ const AuthForm = ({ mode }: AuthForm) => {
         <div className=' relative py-[20px]  lg:py-[50px] flexCenter flex-col'>
           <h2
             className={`${tilt_neon.className} text-3xl lg:text-4xl text-[var(--mainColor)] mb-10 lg:mb-6 tracking-widest`}>
-            {isLoginMode ? 'Login' : 'Register'}
+            {LoginUser ? 'Login' : 'Register'}
           </h2>
 
           <form
@@ -99,7 +99,7 @@ const AuthForm = ({ mode }: AuthForm) => {
                 errorMessage={errors.password?.message}
                 onChange={() => clearErrors('password')}
               />
-              {!isLoginMode && (
+              {!LoginUser && (
                 <Input
                   name='repeatPassword'
                   type='password'
@@ -112,19 +112,19 @@ const AuthForm = ({ mode }: AuthForm) => {
             </div>
 
             <SubmitBtn isSubmitting={isSubmitting}>
-              {isLoginMode ? 'Login' : 'Create account'}
+              {LoginUser ? 'Login' : 'Create account'}
             </SubmitBtn>
           </form>
-          {isLoginMode && <p className='mt-5'>You dont have an account yet?</p>}
+          {LoginUser && <p className='mt-5'>You dont have an account yet?</p>}
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-            className={`${!isLoginMode && 'mt-5'}`}>
+            className={`${!LoginUser && 'mt-5'}`}>
             <Link
-              href={isLoginMode ? '/register' : '/'}
+              href={LoginUser ? '/register' : '/'}
               className='text-[var(--blue)] '>
-              {isLoginMode ? 'Create an account' : 'Back to login'}
+              {LoginUser ? 'Create an account' : 'Back to login'}
             </Link>
           </motion.div>
         </div>
