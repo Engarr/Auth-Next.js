@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import AuthForm from '@/components/auth-form';
 import Title from '@/components/UI/title';
 import RegisterUser from '@/components/register-form';
 
