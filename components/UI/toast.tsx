@@ -7,7 +7,7 @@ const Toast = () => {
         toastOptions={{
           className: 'text-center',
           duration: 3000,
-
+          position: 'top-right',
           style: {
             background: 'rgb(255,255,255)',
             color: 'rgb(0,0,0)',

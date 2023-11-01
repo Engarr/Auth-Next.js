@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import SignOutBtn from './signout';
 
 type MenuItemProps = {
   name: string;
@@ -33,6 +34,7 @@ const MenuItem = ({ name, icon, path }: MenuItemProps) => {
     <motion.li
       aria-hidden='true'
       variants={variants}
+      tabIndex={-1}
       className='mb-2 cursor-pointer tracking-wide text-lg focus:outline-none '
       whileHover={{
         scale: 1.05,
@@ -46,12 +48,19 @@ const MenuItem = ({ name, icon, path }: MenuItemProps) => {
         letterSpacing: '2px',
         originX: 0,
       }}>
-      <Link
-        href='/'
-        className='items-center flex outline-[var(--mainColorOpacity30)] px-2 text-xl lg:text-lg'>
-        <span className=''>{icon}</span>
-        <span className='ml-2'>{name}</span>
-      </Link>
+      {name !== 'Logout' ? (
+        <Link
+          href={path}
+          className='items-center flex outline-[var(--mainColorOpacity30)] px-2 text-xl lg:text-lg'>
+          <span className=''>{icon}</span>
+          <span className='ml-2'>{name}</span>
+        </Link>
+      ) : (
+        <SignOutBtn path={path}>
+          <span className=''>{icon}</span>
+          <span className='ml-2'>{name}</span>
+        </SignOutBtn>
+      )}
     </motion.li>
   );
 };
