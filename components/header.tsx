@@ -4,6 +4,7 @@ import MenuToggleButton from './menu-toggle-button';
 import { motion } from 'framer-motion';
 import Navigation from './navigation';
 import Logo from './logo';
+import Modal from './UI/modal';
 
 const Header = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
@@ -49,11 +50,12 @@ const Header = () => {
             isMenuVisible={isMenuVisible}
           />
           <motion.div
-            className='fixed top-0 left-0 bottom-0 w-full lg:w-[300px] bg-[var(--white)] '
+            className='fixed top-0 left-0 bottom-0 w-full lg:w-[300px] bg-[var(--white)] z-[990]'
             variants={sidebar}
           />
         </motion.div>
         <Navigation />
+        <Modal isVisible={isMenuVisible} visibleAction={menuHandler} />
       </motion.nav>
     </header>
   );
