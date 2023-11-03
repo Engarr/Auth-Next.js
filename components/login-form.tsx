@@ -14,6 +14,7 @@ import { tilt_neon } from '@/lib/fonts';
 import { loginSchema, TLoginSchema } from '@/lib/type';
 import { login } from '@/lib/auth-functions';
 import Loader from './UI/loader';
+import SigninProviders from './signin-providers';
 
 const LoginForm = () => {
   const router = useRouter();
@@ -86,10 +87,11 @@ const LoginForm = () => {
             ) : isSubmitSuccessful ? (
               <Loader message='Redirection' />
             ) : (
-              'Login'
+              'Sign in'
             )}
           </SubmitBtn>
         </form>
+        <SigninProviders />
         <p className='mt-5'>You dont have an account yet?</p>
         <motion.div
           whileHover={{ scale: 1.05 }}

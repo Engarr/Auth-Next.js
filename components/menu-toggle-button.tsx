@@ -18,14 +18,14 @@ const MenuToggleButton = ({ toggle, isMenuVisible }: MenuToggleButtonProps) => {
       initial={false}
       animate={isMenuVisible ? 'open' : 'closed'}
       type='button'
-      title='nav-btn'
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}>
+      title='nav-btn'>
       <motion.svg
         width='33'
         height='33'
         viewBox='0 0 33 33'
-        stroke='var(--mainColor)'>
+        stroke='var(--mainColor)'
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}>
         <Path
           variants={{
             closed: { d: 'M 2 9.5 L 30 9.5' },

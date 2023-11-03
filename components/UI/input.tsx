@@ -27,7 +27,7 @@ const Input = ({
     ? 'border-gray-200'
     : 'peer-[&:not(:placeholder-shown)]:border-red-400';
   return (
-    <div className='w-full mb-5 lg:mb-10 '>
+    <div className='w-full mb-7 lg:mb-10 '>
       <label htmlFor={name} className='relative w-full text-sm lg:text-sm'>
         <input
           type={type}
@@ -41,22 +41,22 @@ const Input = ({
         />
         <span
           className={`absolute left-[1.25rem] -top-[0.20rem] transition-all cursor-text duration-300 rounded-sm
-        peer-focus-within:-top-[2.188rem] 
+        peer-focus-within:-top-[1.65rem]
         peer-focus-within:left-[1.563rem]
         peer-focus-within:text-xs
         peer-focus-within:bg-gray-100
         peer-focus-within:px-3
-        peer-focus-within:py-1
+        peer-focus-within:py-[0.1rem]
         peer-focus-within:border-[var(--mainColorOpacity60)]
         peer-focus-within:border-2
                
         peer-focus-within:[&:not(:placeholder-shown)]:border-[var(--mainColorOpacity60)]
-        peer-[&:not(:placeholder-shown)]:-top-[2.188rem] 
+        peer-[&:not(:placeholder-shown)]:-top-[1.65rem] 
         peer-[&:not(:placeholder-shown)]:left-[1.563rem]
         peer-[&:not(:placeholder-shown)]:text-xs
         peer-[&:not(:placeholder-shown)]:bg-gray-100
-        peer-[&:not(:placeholder-shown)]:px-3
-        peer-[&:not(:placeholder-shown)]:py-1
+        peer-[&:not(:placeholder-shown)]:px-2
+        peer-[&:not(:placeholder-shown)]:py-[0.1rem]
         ${spanBorderColor}
         peer-[&:not(:placeholder-shown)]:border-2`}>
           {spanName}

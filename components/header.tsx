@@ -5,8 +5,10 @@ import { motion } from 'framer-motion';
 import Navigation from './navigation';
 import Logo from './logo';
 import Modal from './UI/modal';
+import { useSession } from 'next-auth/react';
 
 const Header = () => {
+  const { data: session } = useSession();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -35,7 +37,7 @@ const Header = () => {
   };
   return (
     <header>
-      <Logo />
+      <Logo user={session?.user} />
       <motion.nav
         className='relative'
         initial={false}
