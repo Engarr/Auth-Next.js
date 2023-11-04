@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import { getProviders, ClientSafeProvider, signIn } from 'next-auth/react';
+import { getProviders, ClientSafeProvider } from 'next-auth/react';
 import ProviderBtn from './UI/provider-btn';
 import { providersIcons } from '@/lib/data';
+import { AnimatePresence } from 'framer-motion';
+('framer-motion');
 
 const SigninProviders = () => {
   const [providers, setProviders] = useState<Record<
@@ -27,7 +29,7 @@ const SigninProviders = () => {
     : [];
 
   return (
-    <>
+    <AnimatePresence>
       {providers &&
         filteredProviders.map((provider) =>
           providersIcons.map((icon) => (
@@ -40,7 +42,7 @@ const SigninProviders = () => {
             </ProviderBtn>
           ))
         )}
-    </>
+    </AnimatePresence>
   );
 };
 
