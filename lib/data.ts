@@ -2,6 +2,7 @@ import React from 'react';
 import { CgGym } from 'react-icons/cg';
 import { BiSolidHome } from 'react-icons/bi';
 import { MdOutlineLogout } from 'react-icons/md';
+import { AiFillGithub } from 'react-icons/ai';
 
 export const links = [
   { name: 'Home', link: '/home', icon: React.createElement(BiSolidHome) },
@@ -11,4 +12,8 @@ export const links = [
     link: '/',
     icon: React.createElement(MdOutlineLogout),
   },
+] as const;
+
+export const providersIcons = [
+  { name: 'github', providerIcon: React.createElement(AiFillGithub) },
 ] as const;

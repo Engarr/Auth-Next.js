@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getProviders, ClientSafeProvider, signIn } from 'next-auth/react';
 import ProviderBtn from './UI/provider-btn';
+import { providersIcons } from '@/lib/data';
 
 const SigninProviders = () => {
   const [providers, setProviders] = useState<Record<
@@ -28,11 +29,17 @@ const SigninProviders = () => {
   return (
     <>
       {providers &&
-        filteredProviders.map((provider) => (
-          <ProviderBtn key={provider.name} providerId={provider.id}>
-            Sign in with {provider.name}
-          </ProviderBtn>
-        ))}
+        filteredProviders.map((provider) =>
+          providersIcons.map((icon) => (
+            <ProviderBtn key={provider.name} providerId={provider.id}>
+              <span className='mr-2 text-xl'>
+                {icon.name.toLowerCase() === provider.name.toLowerCase() &&
+                  icon.providerIcon}
+              </span>
+              Sign in with {provider.name}
+            </ProviderBtn>
+          ))
+        )}
     </>
   );
 };
