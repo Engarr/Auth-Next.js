@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import SignOutBtn from './signout';
+import { useMenuContext } from '@/context/menu-context';
 
 type MenuItemProps = {
   name: string;
@@ -30,6 +31,8 @@ const variants = {
 };
 
 const MenuItem = ({ name, icon, path }: MenuItemProps) => {
+  const { setIsMenuVisible } = useMenuContext();
+
   return (
     <motion.li
       aria-hidden='true'
@@ -51,7 +54,10 @@ const MenuItem = ({ name, icon, path }: MenuItemProps) => {
       {name !== 'Logout' ? (
         <Link
           href={path}
-          className='items-center flex outline-[var(--mainColorOpacity30)] px-2 text-xl lg:text-lg'>
+          className='items-center flex outline-[var(--mainColorOpacity30)] px-2 text-xl lg:text-lg'
+          onClick={() => {
+            setIsMenuVisible(false);
+          }}>
           <span className=''>{icon}</span>
           <span className='ml-2'>{name}</span>
         </Link>

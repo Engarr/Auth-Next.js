@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import MenuItem from './menu-item';
 import { links } from '@/lib/data';
-import SignOutBtn from './signout';
 
 const variants = {
   open: {

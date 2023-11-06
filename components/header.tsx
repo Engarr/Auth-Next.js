@@ -6,11 +6,12 @@ import Navigation from './navigation';
 import Logo from './logo';
 import Modal from './UI/modal';
 import { useSession } from 'next-auth/react';
+import { useMenuContext } from '@/context/menu-context';
 
 const Header = () => {
   const { data: session } = useSession();
-  const [isMenuVisible, setIsMenuVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const { isMenuVisible, setIsMenuVisible } = useMenuContext();
 
   const menuHandler = () => {
     setIsMenuVisible((prev) => !prev);

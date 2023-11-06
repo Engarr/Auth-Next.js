@@ -2,6 +2,7 @@ import { signOut } from 'next-auth/react';
 import React from 'react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
+import { useMenuContext } from '@/context/menu-context';
 
 type MenuItemProps = {
   path: string;
@@ -12,6 +13,8 @@ const SignOutBtn = ({ path, children }: MenuItemProps) => {
   const toasterHandler = () => {
     toast.success('You have been successfully logout!');
   };
+  const { setIsMenuVisible } = useMenuContext();
+
   return (
     <motion.button
       whileHover={{
@@ -29,6 +32,7 @@ const SignOutBtn = ({ path, children }: MenuItemProps) => {
       onClick={() => {
         toasterHandler();
         signOut({ callbackUrl: path });
+        setIsMenuVisible(false);
       }}
       className='items-center flex outline-[var(--mainColorOpacity30)] px-2 text-xl lg:text-lg'>
       {children}

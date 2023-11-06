@@ -20,19 +20,14 @@ type LogoProps = {
 
 const Logo = ({ user }: LogoProps) => {
   const userImage = user?.image ? (
-    <motion.div
-      className='  rounded-full h-full w-fill flexCenter overflow-hidden'
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}>
-      <Image
-        className='rounded-full w-full h-full '
-        src={user?.image}
-        width={200}
-        height={200}
-        alt={user?.name ?? 'Profile Pic'}
-        priority={true}
-      />
-    </motion.div>
+    <Image
+      className='rounded-full w-full h-full '
+      src={user?.image}
+      width={200}
+      height={200}
+      alt={user?.name ?? 'Profile Pic'}
+      priority={true}
+    />
   ) : (
     <AiOutlineUser className='text-3xl text-[var(--mainColor)]' />
   );
@@ -43,7 +38,12 @@ const Logo = ({ user }: LogoProps) => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: 'spring' }}>
       <motion.div className='mr-4 bg-white  rounded-full h-[50px] w-[50px] flexCenter cursor-pointer overflow-hidden'>
-        {userImage}
+        <motion.div
+          className='  rounded-full h-full w-fill flexCenter overflow-hidden'
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}>
+          {userImage}
+        </motion.div>
       </motion.div>
       <Link
         href='/home'
