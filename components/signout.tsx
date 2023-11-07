@@ -34,7 +34,7 @@ const SignOutBtn = ({ path, children }: MenuItemProps) => {
         signOut({ callbackUrl: path });
         setIsMenuVisible(false);
       }}
-      className='items-center flex outline-[var(--mainColorOpacity30)] px-2 text-xl lg:text-lg'>
+      className='items-center flex outline-[var(--mainColor)] px-2 text-xl lg:text-lg'>
       {children}
     </motion.button>
   );

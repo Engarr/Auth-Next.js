@@ -14,7 +14,7 @@ const MenuToggleButton = ({ toggle, isMenuVisible }: MenuToggleButtonProps) => {
   return (
     <motion.button
       onClick={() => toggle((prev) => !prev)}
-      className='fixed z-[999] outline-[var(--mainColorOpacity30)] p-2 top-[15px] left-[16px] rounded-full'
+      className='fixed z-[999] outline-[var(--mainColor)] p-2 top-[15px] left-[16px] rounded-full'
       initial={false}
       animate={isMenuVisible ? 'open' : 'closed'}
       type='button'
@@ -25,7 +25,9 @@ const MenuToggleButton = ({ toggle, isMenuVisible }: MenuToggleButtonProps) => {
         viewBox='0 0 33 33'
         stroke='var(--mainColor)'
         whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}>
+        whileTap={{ scale: 0.95 }}
+        tabIndex={-1}
+        className=' outline-none'>
         <Path
           variants={{
             closed: { d: 'M 2 9.5 L 30 9.5' },

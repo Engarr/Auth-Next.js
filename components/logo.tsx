@@ -15,7 +15,6 @@ type User =
 
 type LogoProps = {
   user: User;
-  // pagetype: string;
 };
 
 const Logo = ({ user }: LogoProps) => {
@@ -29,17 +28,17 @@ const Logo = ({ user }: LogoProps) => {
       priority={true}
     />
   ) : (
-    <AiOutlineUser className='text-3xl text-[var(--mainColor)]' />
+    <AiOutlineUser className='text-xl text-[var(--mainColor)] w-full h-full  ' />
   );
   return (
     <motion.div
-      className='fixed right-8 top-3  flexCenter'
+      className='fixed right-1 lg:right-8 top-5  flexCenter '
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: 'spring' }}>
-      <motion.div className='mr-4 bg-white  rounded-full h-[50px] w-[50px] flexCenter cursor-pointer overflow-hidden'>
+      <motion.div className='mr-4 bg-white  rounded-full lg:h-[55px] lg:w-[55px] h-[45px]  w-[45px]flexCenter cursor-pointer overflow-hidden hidden  sm:flex'>
         <motion.div
-          className='  rounded-full h-full w-fill flexCenter overflow-hidden'
+          className=' rounded-full h-full w-fill flexCenter overflow-hidden outline-[var(--mainColor)] p-2 '
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}>
           {userImage}
@@ -47,7 +46,7 @@ const Logo = ({ user }: LogoProps) => {
       </motion.div>
       <Link
         href='/home'
-        className={`text-2xl font-semibold tracking-widest ${roboto_mono.className} hover:text-[var(--blue)] transition-all`}>
+        className={`text-2xl font-semibold tracking-widest ${roboto_mono.className} hover:text-[var(--blue)] transition-all outline-[var(--mainColor)] p-2 `}>
         Gym-Assistant
       </Link>
     </motion.div>
