@@ -7,7 +7,7 @@ const ExercisesPage = () => {
   return (
     <section className='mt-24'>
       <PageTitle>Training Manual</PageTitle>
-      <div className='relative mt-[100px] flexCenter gap-3 flex-wrap max-w-[1400px] left-1/2 -translate-x-1/2'>
+      <div className='relative mt-[100px] flexCenter gap-4 flex-wrap max-w-[1400px] left-1/2 -translate-x-1/2'>
         {exerciseCategories.map((category, index) => (
           <React.Fragment key={index}>
             <ExercisesCard

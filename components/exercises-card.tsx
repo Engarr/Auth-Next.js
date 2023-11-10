@@ -45,16 +45,16 @@ const ExercisesCard = ({
     },
   };
   return (
-    <motion.div
-      variants={variants}
-      initial='start'
-      animate='end'
-      custom={index}
-      whileHover='hover'
-      whileTap='tap'
-      tabIndex={-1}
-      className=' w-[300px] h-[250px] overflow-hidden relative mb-2 shadow-xl'>
-      <Link href={`/exercises/${link}`} className='outline-[var(--mainColor)]'>
+    <Link href={`/exercises/${link}`} className='outline-[var(--mainColor)] '>
+      <motion.div
+        variants={variants}
+        initial='start'
+        animate='end'
+        custom={index}
+        whileHover='hover'
+        whileTap='tap'
+        tabIndex={-1}
+        className='w-[300px] h-[250px] overflow-hidden relative mb-3 shadow-xl'>
         <Image
           src={imageUrl}
           alt={alt}
@@ -62,19 +62,19 @@ const ExercisesCard = ({
           fill
           priority
           sizes='(max-width: 768px) 100vw, 33vw'
-          className='rounded-lg'
+          className='rounded-md'
         />
         <motion.div
-          className='absolute bottom-0 bg-black/80 w-full text-[var(--white)] text-center py-2'
+          className='absolute bottom-0 bg-black/80 w-full text-[var(--white)] text-center py-2 '
           variants={textVariants}
           transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
-          <span className='text-[var(--mainColor)] font-semibold pr-2'>
+          <span className='text-[var(--mainColor)] font-semibold pr-2 '>
             {categoryName}
           </span>
           exercises
         </motion.div>
-      </Link>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 };
 
