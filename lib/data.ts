@@ -74,9 +74,10 @@ export const exerciseCategories = [
   },
 ];
 
-const exercises = [
+export const exercises = [
   {
     exerciseName: 'Barbell Bench Press',
+    category: 'chest',
     url: 'barbell-bench-press',
     muscle1: ['pectoralis major', 'triceps brachii', 'anterior deltoid'],
     muscle2: ['anterior serratus', 'anterior deltoid'],
@@ -87,12 +88,14 @@ const exercises = [
   },
   {
     exerciseName: 'Incline Barbell Bench Press (Head Down)',
+    category: 'chest',
     url: 'incline-barbell-bench-press-head-down',
     muscle1: ['pectoralis major', 'triceps brachii', 'anterior deltoid'],
     videoUrl: ['https://www.youtube.com/embed/qXhjWWl8hrM'],
   },
   {
     exerciseName: 'Barbell Bench Press (30-45° Incline)',
+    category: 'chest',
     url: 'barbell-bench-press-30-45-degree-incline',
     muscle1: [
       'pectoralis major clavicular part (upper)',
@@ -104,12 +107,14 @@ const exercises = [
   },
   {
     exerciseName: 'Dumbbell Bench Press',
+    category: 'chest',
     url: 'dumbbell-bench-press',
     muscle1: ['pectoralis major', 'triceps brachii', 'anterior deltoid'],
     videoUrl: ['https://www.youtube.com/embed/ACsYCmLA9Do'],
   },
   {
     exerciseName: 'Dumbbell Bench Press (30-45° Incline)',
+    category: 'chest',
     url: 'dumbbell-bench-press-30-45-degree-incline',
     muscle1: ['pectoralis major clavicular part (upper)', 'anterior deltoid'],
     muscle2: ['triceps brachii'],
@@ -117,6 +122,7 @@ const exercises = [
   },
   {
     exerciseName: 'Dumbbell Bench Press (Head Down on Incline Bench)',
+    category: 'chest',
     url: 'dumbbell-bench-press-head-down-on-incline-bench',
     muscle1: [
       'pectoralis major sternal part (lower)',
@@ -127,6 +133,7 @@ const exercises = [
   },
   {
     exerciseName: 'Cable Flyes',
+    category: 'chest',
     url: 'cable-flyes',
     muscle1: ['pectoralis major', 'anterior deltoid'],
     videoUrl: ['https://www.youtube.com/embed/vM1Ovmiu71M'],
@@ -134,6 +141,7 @@ const exercises = [
   // Back exercises
   {
     exerciseName: 'Pull-Ups (Wide Grip)',
+    category: 'back',
     url: 'pull-ups-wide-grip',
     muscle1: ['latissimus dorsi', 'trapezius', 'rhomboids', 'biceps brachii'],
     videoUrl: [
@@ -143,6 +151,7 @@ const exercises = [
   },
   {
     exerciseName: 'Bent Over Barbell Rows',
+    category: 'back',
     url: 'bent-over-barbell-rows',
     muscle1: ['latissimus dorsi', 'trapezius', 'rhomboids'],
     muscle2: [
@@ -157,6 +166,7 @@ const exercises = [
   },
   {
     exerciseName: 'Dumbbell Rows (Supported on Bench)',
+    category: 'back',
     url: 'dumbbell-rows-supported-on-bench',
     muscle1: [
       'latissimus dorsi',
@@ -170,12 +180,14 @@ const exercises = [
   // Quadriceps/Hamstrings exercises
   {
     exerciseName: 'Dumbbell Lunges',
+    category: 'quadriceps',
     url: 'dumbbell-lunges',
     muscle1: ['quadriceps', 'hamstrings', 'gluteus maximus'],
     videoUrl: ['https://www.youtube.com/embed/M4THUsShZFA'],
   },
   {
     exerciseName: 'Back Squats',
+    category: 'quadriceps',
     url: 'back-squats',
     muscle1: ['quadriceps'],
     muscle2: ['hamstrings', 'gluteus maximus'],
@@ -183,6 +195,7 @@ const exercises = [
   },
   {
     exerciseName: 'Front Squats',
+    category: 'quadriceps',
     url: 'front-squats',
     muscle1: ['quadriceps'],
     muscle2: ['hamstrings', 'gluteus maximus'],
@@ -191,6 +204,7 @@ const exercises = [
   // Glutes/Hamstrings exercises
   {
     exerciseName: 'Deadlift',
+    category: 'hamstrings-glutes',
     url: 'deadlift',
     muscle1: [
       'gluteus maximus',
@@ -207,6 +221,7 @@ const exercises = [
   },
   {
     exerciseName: 'Hip Thrusts',
+    category: 'hamstrings-glutes',
     url: 'hip-thrusts',
     muscle1: ['gluteus maximus', 'hamstrings', 'quadriceps'],
     videoUrl: [
@@ -216,6 +231,7 @@ const exercises = [
   },
   {
     exerciseName: 'Leg Abduction on Machine',
+    category: 'hamstrings-glutes',
     url: 'leg-abduction-on-machine',
     muscle1: [
       'gluteus maximus',
@@ -228,6 +244,7 @@ const exercises = [
   // Shoulders exercises
   {
     exerciseName: 'Barbell Overhead Press',
+    category: 'shoulders',
     url: 'barbell-overhead-press',
     muscle1: ['anterior deltoid'],
     muscle2: ['pectoralis major clavicular part (upper)', 'subscapularis'],
@@ -238,6 +255,7 @@ const exercises = [
   },
   {
     exerciseName: 'Seated Dumbbell Press',
+    category: 'shoulders',
     url: 'seated-dumbbell-press',
     muscle1: ['middle deltoid'],
     muscle2: ['triceps brachii', 'trapezius'],
@@ -245,6 +263,7 @@ const exercises = [
   },
   {
     exerciseName: 'Lateral Raises with Dumbbells',
+    category: 'shoulders',
     url: 'lateral-raises-with-dumbbells',
     muscle1: ['middle deltoid', 'pectoralis major sternal part (middle)'],
     muscle2: ['trapezius'],
@@ -252,6 +271,7 @@ const exercises = [
   },
   {
     exerciseName: 'Face Pulls',
+    category: 'shoulders',
     url: 'face-pulls',
     muscle1: ['posterior deltoid', 'infraspinatus', 'teres minor', 'trapezius'],
     videoUrl: [
@@ -261,6 +281,7 @@ const exercises = [
   },
   {
     exerciseName: 'Alternating Front Raises with Dumbbells',
+    category: 'shoulders',
     url: 'alternating-front-raises-with-dumbbells',
     muscle1: ['anterior deltoid'],
     muscle2: ['pectoralis major clavicular part (upper)'],
@@ -269,12 +290,14 @@ const exercises = [
   // Abdominal exercises
   {
     exerciseName: 'Hanging Knee Raises',
+    category: 'abs',
     url: 'hanging-knee-raises',
     muscle1: ['rectus abdominis', 'iliopsoas', 'quadriceps'],
     videoUrl: ['https://www.youtube.com/embed/u1OJQFS3Irw'],
   },
   {
     exerciseName: 'Plank',
+    category: 'abs',
     url: 'plank',
     time: true,
     muscle1: [
@@ -290,12 +313,14 @@ const exercises = [
   },
   {
     exerciseName: 'Cable Crunches',
+    category: 'abs',
     url: 'cable-crunches',
     muscle1: ['rectus abdominis', 'rectus sheath'],
     videoUrl: ['https://www.youtube.com/embed/yTTuVSKU-Ks'],
   },
   {
     exerciseName: 'Russian Twists',
+    category: 'abs',
     url: 'russian-twists',
     muscle1: ['rectus abdominis', 'obliques'],
     videoUrl: ['https://www.youtube.com/embed/rwnb6DGyxQA'],
@@ -303,24 +328,28 @@ const exercises = [
   // Biceps exercises
   {
     exerciseName: 'Cable Preacher Curls',
+    category: 'biceps',
     url: 'cable-preacher-curls',
     muscle1: ['biceps brachii', 'brachialis'],
     videoUrl: ['https://www.youtube.com/embed/QkK9UjGI4Pw'],
   },
   {
     exerciseName: 'Hammer Curls with Dumbbells',
+    category: 'biceps',
     url: 'hammer-curls-with-dumbbells',
     muscle1: ['brachioradialis', 'biceps brachii'],
     videoUrl: ['https://www.youtube.com/embed/s_ubLsRZ59I'],
   },
   {
     exerciseName: 'Standing Barbell Curls',
+    category: 'biceps',
     url: 'standing-barbell-curls',
     muscle1: ['biceps brachii', 'brachialis'],
     videoUrl: ['https://www.youtube.com/embed/wHbgdQ5rS7g'],
   },
   {
     exerciseName: 'Standing Alternating Dumbbell Curls with Cable',
+    category: 'biceps',
     url: 'standing-alternating-dumbbell-curls-with-cable',
     muscle1: ['biceps brachii', 'brachialis'],
     videoUrl: ['https://www.youtube.com/embed/XlvPT0mfQO8'],
@@ -328,6 +357,7 @@ const exercises = [
   // Triceps exercises
   {
     exerciseName: 'Dips (Triceps Version)',
+    category: 'triceps',
     url: 'dips-triceps-version',
     muscle1: ['triceps brachii'],
     muscle2: ['brachialis'],
@@ -335,18 +365,21 @@ const exercises = [
   },
   {
     exerciseName: 'Tricep Pushdowns with Straight Bar',
+    category: 'triceps',
     url: 'tricep-pushdowns-with-straight-bar',
     muscle1: ['triceps brachii', 'brachialis'],
     videoUrl: ['https://www.youtube.com/embed/WBwvIlLTm00'],
   },
   {
     exerciseName: 'Lying Tricep Extensions on Flat Bench',
+    category: 'triceps',
     url: 'lying-tricep-extensions-on-flat-bench',
     muscle1: ['triceps brachii'],
     videoUrl: ['https://www.youtube.com/embed/TJkoGDIdRYk'],
   },
   {
     exerciseName: 'Overhead Tricep Extensions with Dumbbell',
+    category: 'triceps',
     url: 'overhead-tricep-extensions-with-dumbbell',
     muscle1: ['triceps brachii'],
     videoUrl: ['https://www.youtube.com/embed/mJf7Q8_nJMk'],
