@@ -78,7 +78,6 @@ export const exercises = [
   {
     exerciseName: 'Barbell Bench Press',
     category: 'chest',
-    url: 'barbell-bench-press',
     muscle1: ['pectoralis major', 'triceps brachii', 'anterior deltoid'],
     muscle2: ['anterior serratus', 'anterior deltoid'],
     videoUrl: [
@@ -89,14 +88,12 @@ export const exercises = [
   {
     exerciseName: 'Incline Barbell Bench Press (Head Down)',
     category: 'chest',
-    url: 'incline-barbell-bench-press-head-down',
     muscle1: ['pectoralis major', 'triceps brachii', 'anterior deltoid'],
     videoUrl: ['https://www.youtube.com/embed/qXhjWWl8hrM'],
   },
   {
     exerciseName: 'Barbell Bench Press (30-45° Incline)',
     category: 'chest',
-    url: 'barbell-bench-press-30-45-degree-incline',
     muscle1: [
       'pectoralis major clavicular part (upper)',
       'triceps brachii',
@@ -108,14 +105,12 @@ export const exercises = [
   {
     exerciseName: 'Dumbbell Bench Press',
     category: 'chest',
-    url: 'dumbbell-bench-press',
     muscle1: ['pectoralis major', 'triceps brachii', 'anterior deltoid'],
     videoUrl: ['https://www.youtube.com/embed/ACsYCmLA9Do'],
   },
   {
     exerciseName: 'Dumbbell Bench Press (30-45° Incline)',
     category: 'chest',
-    url: 'dumbbell-bench-press-30-45-degree-incline',
     muscle1: ['pectoralis major clavicular part (upper)', 'anterior deltoid'],
     muscle2: ['triceps brachii'],
     videoUrl: ['https://www.youtube.com/embed/C06qMsCzjQ8'],
@@ -123,7 +118,6 @@ export const exercises = [
   {
     exerciseName: 'Dumbbell Bench Press (Head Down on Incline Bench)',
     category: 'chest',
-    url: 'dumbbell-bench-press-head-down-on-incline-bench',
     muscle1: [
       'pectoralis major sternal part (lower)',
       'triceps brachii',
@@ -134,7 +128,6 @@ export const exercises = [
   {
     exerciseName: 'Cable Flyes',
     category: 'chest',
-    url: 'cable-flyes',
     muscle1: ['pectoralis major', 'anterior deltoid'],
     videoUrl: ['https://www.youtube.com/embed/vM1Ovmiu71M'],
   },
@@ -142,7 +135,6 @@ export const exercises = [
   {
     exerciseName: 'Pull-Ups (Wide Grip)',
     category: 'back',
-    url: 'pull-ups-wide-grip',
     muscle1: ['latissimus dorsi', 'trapezius', 'rhomboids', 'biceps brachii'],
     videoUrl: [
       'https://www.youtube.com/embed/UvW6XnClK7A',
@@ -152,7 +144,6 @@ export const exercises = [
   {
     exerciseName: 'Bent Over Barbell Rows',
     category: 'back',
-    url: 'bent-over-barbell-rows',
     muscle1: ['latissimus dorsi', 'trapezius', 'rhomboids'],
     muscle2: [
       'pectoralis major clavicular part (upper)',
@@ -167,7 +158,6 @@ export const exercises = [
   {
     exerciseName: 'Dumbbell Rows (Supported on Bench)',
     category: 'back',
-    url: 'dumbbell-rows-supported-on-bench',
     muscle1: [
       'latissimus dorsi',
       'trapezius',
@@ -181,14 +171,12 @@ export const exercises = [
   {
     exerciseName: 'Dumbbell Lunges',
     category: 'quadriceps',
-    url: 'dumbbell-lunges',
     muscle1: ['quadriceps', 'hamstrings', 'gluteus maximus'],
     videoUrl: ['https://www.youtube.com/embed/M4THUsShZFA'],
   },
   {
     exerciseName: 'Back Squats',
     category: 'quadriceps',
-    url: 'back-squats',
     muscle1: ['quadriceps'],
     muscle2: ['hamstrings', 'gluteus maximus'],
     videoUrl: ['https://www.youtube.com/embed/aX7aE0meWcY'],
@@ -196,7 +184,6 @@ export const exercises = [
   {
     exerciseName: 'Front Squats',
     category: 'quadriceps',
-    url: 'front-squats',
     muscle1: ['quadriceps'],
     muscle2: ['hamstrings', 'gluteus maximus'],
     videoUrl: ['https://www.youtube.com/embed/gOsd8NNPg04'],
@@ -205,7 +192,6 @@ export const exercises = [
   {
     exerciseName: 'Deadlift',
     category: 'hamstrings-glutes',
-    url: 'deadlift',
     muscle1: [
       'gluteus maximus',
       'hamstrings',
@@ -222,7 +208,6 @@ export const exercises = [
   {
     exerciseName: 'Hip Thrusts',
     category: 'hamstrings-glutes',
-    url: 'hip-thrusts',
     muscle1: ['gluteus maximus', 'hamstrings', 'quadriceps'],
     videoUrl: [
       'https://www.youtube.com/embed/ezEQkeQWMPM',
@@ -232,7 +217,6 @@ export const exercises = [
   {
     exerciseName: 'Leg Abduction on Machine',
     category: 'hamstrings-glutes',
-    url: 'leg-abduction-on-machine',
     muscle1: [
       'gluteus maximus',
       'iliotibial tract',
@@ -245,7 +229,6 @@ export const exercises = [
   {
     exerciseName: 'Barbell Overhead Press',
     category: 'shoulders',
-    url: 'barbell-overhead-press',
     muscle1: ['anterior deltoid'],
     muscle2: ['pectoralis major clavicular part (upper)', 'subscapularis'],
     videoUrl: [
@@ -256,7 +239,6 @@ export const exercises = [
   {
     exerciseName: 'Seated Dumbbell Press',
     category: 'shoulders',
-    url: 'seated-dumbbell-press',
     muscle1: ['middle deltoid'],
     muscle2: ['triceps brachii', 'trapezius'],
     videoUrl: ['https://www.youtube.com/embed/pInYJYisaEo'],
@@ -264,7 +246,6 @@ export const exercises = [
   {
     exerciseName: 'Lateral Raises with Dumbbells',
     category: 'shoulders',
-    url: 'lateral-raises-with-dumbbells',
     muscle1: ['middle deltoid', 'pectoralis major sternal part (middle)'],
     muscle2: ['trapezius'],
     videoUrl: ['https://www.youtube.com/embed/5g5U2dIoeQ0'],
@@ -272,7 +253,6 @@ export const exercises = [
   {
     exerciseName: 'Face Pulls',
     category: 'shoulders',
-    url: 'face-pulls',
     muscle1: ['posterior deltoid', 'infraspinatus', 'teres minor', 'trapezius'],
     videoUrl: [
       'https://www.youtube.com/embed/foz3Le39glE',
@@ -282,7 +262,6 @@ export const exercises = [
   {
     exerciseName: 'Alternating Front Raises with Dumbbells',
     category: 'shoulders',
-    url: 'alternating-front-raises-with-dumbbells',
     muscle1: ['anterior deltoid'],
     muscle2: ['pectoralis major clavicular part (upper)'],
     videoUrl: ['https://www.youtube.com/embed/0ZslV4JJkIg'],
@@ -291,14 +270,12 @@ export const exercises = [
   {
     exerciseName: 'Hanging Knee Raises',
     category: 'abs',
-    url: 'hanging-knee-raises',
     muscle1: ['rectus abdominis', 'iliopsoas', 'quadriceps'],
     videoUrl: ['https://www.youtube.com/embed/u1OJQFS3Irw'],
   },
   {
     exerciseName: 'Plank',
     category: 'abs',
-    url: 'plank',
     time: true,
     muscle1: [
       'rectus abdominis',
@@ -314,14 +291,12 @@ export const exercises = [
   {
     exerciseName: 'Cable Crunches',
     category: 'abs',
-    url: 'cable-crunches',
     muscle1: ['rectus abdominis', 'rectus sheath'],
     videoUrl: ['https://www.youtube.com/embed/yTTuVSKU-Ks'],
   },
   {
     exerciseName: 'Russian Twists',
     category: 'abs',
-    url: 'russian-twists',
     muscle1: ['rectus abdominis', 'obliques'],
     videoUrl: ['https://www.youtube.com/embed/rwnb6DGyxQA'],
   },
@@ -329,28 +304,24 @@ export const exercises = [
   {
     exerciseName: 'Cable Preacher Curls',
     category: 'biceps',
-    url: 'cable-preacher-curls',
     muscle1: ['biceps brachii', 'brachialis'],
     videoUrl: ['https://www.youtube.com/embed/QkK9UjGI4Pw'],
   },
   {
     exerciseName: 'Hammer Curls with Dumbbells',
     category: 'biceps',
-    url: 'hammer-curls-with-dumbbells',
     muscle1: ['brachioradialis', 'biceps brachii'],
     videoUrl: ['https://www.youtube.com/embed/s_ubLsRZ59I'],
   },
   {
     exerciseName: 'Standing Barbell Curls',
     category: 'biceps',
-    url: 'standing-barbell-curls',
     muscle1: ['biceps brachii', 'brachialis'],
     videoUrl: ['https://www.youtube.com/embed/wHbgdQ5rS7g'],
   },
   {
     exerciseName: 'Standing Alternating Dumbbell Curls with Cable',
     category: 'biceps',
-    url: 'standing-alternating-dumbbell-curls-with-cable',
     muscle1: ['biceps brachii', 'brachialis'],
     videoUrl: ['https://www.youtube.com/embed/XlvPT0mfQO8'],
   },
@@ -358,7 +329,6 @@ export const exercises = [
   {
     exerciseName: 'Dips (Triceps Version)',
     category: 'triceps',
-    url: 'dips-triceps-version',
     muscle1: ['triceps brachii'],
     muscle2: ['brachialis'],
     videoUrl: ['https://www.youtube.com/embed/hiAvKCpOWdg'],
@@ -366,24 +336,86 @@ export const exercises = [
   {
     exerciseName: 'Tricep Pushdowns with Straight Bar',
     category: 'triceps',
-    url: 'tricep-pushdowns-with-straight-bar',
     muscle1: ['triceps brachii', 'brachialis'],
     videoUrl: ['https://www.youtube.com/embed/WBwvIlLTm00'],
   },
   {
     exerciseName: 'Lying Tricep Extensions on Flat Bench',
     category: 'triceps',
-    url: 'lying-tricep-extensions-on-flat-bench',
     muscle1: ['triceps brachii'],
     videoUrl: ['https://www.youtube.com/embed/TJkoGDIdRYk'],
   },
   {
     exerciseName: 'Overhead Tricep Extensions with Dumbbell',
     category: 'triceps',
-    url: 'overhead-tricep-extensions-with-dumbbell',
     muscle1: ['triceps brachii'],
     videoUrl: ['https://www.youtube.com/embed/mJf7Q8_nJMk'],
   },
 ];
 
-export default exercises;
+export const exercisesDescription = [
+  {
+    category: 'chest',
+    title: 'chest muscles',
+    description:
+      "Within the chest area, there are many muscle groups, but the most well-known among them are the pectoralis major and minor, the subclavius muscle, and the serratus anterior. They are crucial for maintaining stability and proper body posture. The most popular exercise for chest training is barbell bench press on a flat bench. However, it's worth noting that during this exercise, in addition to the chest muscles, the triceps and shoulder muscles are also actively engaged",
+    imageUrl:
+      'https://www.fabrykasily.pl/upload/gallery/2018/03/id_9194_1521031139_c560x377x0x17,540x360.jpg',
+  },
+  {
+    category: 'back',
+    title: 'back muscles',
+    description:
+      'Our back consists of a whole group of muscles performing various functions. Well-developed back muscles give the silhouette a V-shaped appearance. Among the largest and most visible muscles, we can include the latissimus dorsi, trapezius, and erector spinae.For a comprehensive back workout, remember to perform exercises based on vertical pulling, such as pull-ups on a bar, as well as horizontal pulling, such as barbell rows.',
+    imageUrl:
+      'https://www.fabrykasily.pl/upload/gallery/2018/03/id_9197_1521031212_c554x373x0x13,540x360.jpg',
+  },
+  {
+    category: 'quadriceps',
+    title: 'quadriceps / hamstrings',
+    description:
+      'The following positions mostly depict compound exercises, which means that during a single movement, we engage multiple joints and muscles. Exercises in this category heavily involve the quadriceps muscles, which is why they have been classified in this category. The main function of the quadriceps muscle is knee extension. Therefore, any exercise requiring this movement will engage the quadriceps muscle.',
+    imageUrl:
+      'https://www.fabrykasily.pl/upload/gallery/2018/03/id_9193_1521031142_c560x377x9x17,540x360.jpg',
+  },
+  {
+    category: 'hamstrings-glutes',
+    title: 'glutes/hamstrings',
+    description:
+      'This category includes exercises that heavily engage the hamstring and glute muscles. In exercises based on the hip hinge movement pattern, utilized in the deadlift, these muscles work in close synergy.The primary function of the hamstring muscle is knee flexion, for example, in the crane exercise. The glutes, on the other hand, are powerful hip extensors, playing a major role in exercises like hip thrusts with a barbell.',
+    imageUrl:
+      'https://www.fabrykasily.pl/upload/gallery/2018/03/id_9195_1521031215_c560x377x2x4,540x360.jpg',
+  },
+  {
+    category: 'shoulders',
+    title: 'shoulders',
+    description:
+      'The shoulder muscles, commonly referred to as the deltoids, form a group of muscles responsible for controlling our arms. They are divided into three parts: anterior, lateral, and posterior. The anterior deltoid serves as the driving force for most overhead presses, the lateral deltoid is largely isolated through lateral raises with dumbbells, while the posterior deltoid is responsible for moving the arm backward. To engage the posterior deltoid, perform raises in a bent-over position.',
+    imageUrl:
+      'https://www.fabrykasily.pl/upload/gallery/2018/03/id_9190_1521030039_540x360.jpg',
+  },
+  {
+    category: 'abs',
+    title: 'abdominal',
+    description:
+      'The abdominal muscles are located in the center of our body and, without our conscious awareness, participate in every movement activity related to locomotion or free weight exercises. They connect the upper and lower parts of the body. Their fundamental tasks include stabilization and maintaining a straight posture. The exercises presented below aim to strengthen our muscles and assist in achieving their sculpting.',
+    imageUrl:
+      'https://www.fabrykasily.pl/upload/gallery/2018/03/id_9192_1521031073_c560x377x0x17,540x360.jpg',
+  },
+  {
+    category: 'biceps',
+    title: 'biceps',
+    description:
+      "As the name suggests, this is a muscle composed of two heads. The short head is located on the inner side of the arm, and the long head is on the outer side. Just below them is the brachialis muscle, which, together with the biceps, flexes the elbow joint. Basic exercises aimed at developing our biceps include arm curls with dumbbells or a barbell. However, let's not forget the significant involvement of the biceps and shoulder muscles in back muscle exercises.",
+    imageUrl:
+      'https://www.fabrykasily.pl/upload/gallery/2018/03/id_9191_1521031033_c560x377x0x17,540x360.jpg',
+  },
+  {
+    category: 'triceps',
+    title: 'triceps',
+    description:
+      'The muscle occupying about 2/3 of the volume of our arm is composed of three heads: lateral, long, and medial. The main function of the muscle is extension at the elbow joint, so any exercise involving this movement will engage our triceps.Among the most popular exercises are dips, a bodyweight exercise, and French presses, typically performed using an EZ bar or dumbbells.',
+    imageUrl:
+      'https://www.fabrykasily.pl/upload/gallery/2018/03/id_9198_1521031241_c560x377x9x17,540x360.jpg',
+  },
+];

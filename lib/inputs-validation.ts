@@ -1,60 +1,20 @@
-type loginInputsValidation = {
-  email: string;
-  password: string;
-  repeatPassword: string;
-  isLoginMode: boolean;
-};
+import { z } from 'zod';
 
-const isEmailValid = (email: string) => {
-  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-  return emailRegex.test(email);
-};
-const isPasswordValid = (password: string) => {
-  const passwordRegex = /^(?=.*[A-Za-z0-9])(?=.*[^A-Za-z0-9]).{6,}$/;
-  return passwordRegex.test(password);
-};
+export const loginSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(1, 'Field can not be empty.'),
+});
 
-export const authFormsValidation = ({
-  email,
-  password,
-  repeatPassword,
-  isLoginMode,
-}: loginInputsValidation) => {
-  let errorMessage = {
-    email: '',
-    password: '',
-    repeatPassword: '',
-  };
-  if (!isLoginMode) {
-    if (!isEmailValid(email)) {
-      errorMessage = {
-        ...errorMessage,
-        email: 'Please enter a valid email address. ',
-      };
-    }
+export const signUpSchema = z
+  .object({
+    email: z.string().email(),
+    password: z.string().min(2, 'Password must be at least 10 characters'),
+    repeatPassword: z.string(),
+  })
+  .refine((data) => data.password === data.repeatPassword, {
+    message: 'Passwords must match',
+    path: ['repeatPassword'],
+  });
 
-    if (!isPasswordValid(password)) {
-      errorMessage = {
-        ...errorMessage,
-        password:
-          'Password must be at least 6 characters long and contain at least one special character. ',
-      };
-    }
-
-    if (isPasswordValid(password) && password !== repeatPassword) {
-      errorMessage = {
-        ...errorMessage,
-        repeatPassword: 'Passwords must be the same ',
-      };
-    }
-  } else {
-    if (email === '' || password === '') {
-      errorMessage = {
-        email: 'This field cannot be empty',
-        password: 'This field cannot be empty',
-        repeatPassword: '',
-      };
-    }
-  }
-  return errorMessage;
-};
+export type TSignUpSchema = z.infer<typeof signUpSchema>;
+export type TLoginSchema = z.infer<typeof loginSchema>;

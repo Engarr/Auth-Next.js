@@ -11,9 +11,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'react-hot-toast';
 
-import { signUpSchema, TSignUpSchema } from '@/lib/type';
 import { signUser } from '@/lib/auth-functions';
 import Loader from './UI/loader';
+import { TSignUpSchema, signUpSchema } from '@/lib/inputs-validation';
 
 const RegisterUser = () => {
   const router = useRouter();

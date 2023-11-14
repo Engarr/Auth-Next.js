@@ -1,15 +1,22 @@
-import exercises from '@/lib/data';
+import { exercises, exercisesDescription } from '@/lib/data';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
 export const GET = async (req: Request, { params }: Params) => {
   const { category } = params;
-  const exercisesArr = exercises;
 
   try {
-    const categoryExercises = exercisesArr.filter(
+    const categoryExercises = exercises.filter(
       (exercises) => exercises.category === category
     );
-    return new Response(JSON.stringify(categoryExercises), {
+    const categoryDescription = exercisesDescription.filter(
+      (exercises) => exercises.category === category
+    );
+    const response = {
+      description: categoryDescription,
+      exercises: categoryExercises,
+    };
+
+    return new Response(JSON.stringify(response), {
       status: 200,
     });
   } catch (err) {

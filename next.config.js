@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['static.strengthlevel.com'],
+    domains: ['static.strengthlevel.com', 'www.fabrykasily.pl'],
 
     remotePatterns: [
       {

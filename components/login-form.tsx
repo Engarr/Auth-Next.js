@@ -11,10 +11,10 @@ import Input from './UI/input';
 import SubmitBtn from './UI/submit-btn';
 
 import { tilt_neon } from '@/lib/fonts';
-import { loginSchema, TLoginSchema } from '@/lib/type';
 import { login } from '@/lib/auth-functions';
 import Loader from './UI/loader';
 import SigninProviders from './signin-providers';
+import { TLoginSchema, loginSchema } from '@/lib/inputs-validation';
 
 const LoginForm = () => {
   const router = useRouter();
