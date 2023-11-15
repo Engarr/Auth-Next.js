@@ -15,7 +15,7 @@ const ExercisesPage = () => {
               alt={category.alt}
               categoryName={category.name}
               index={index}
-              link={category.link}
+              link={`/exercises/${category.link}`}
             />
           </React.Fragment>
         ))}

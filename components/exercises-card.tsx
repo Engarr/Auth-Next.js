@@ -45,7 +45,7 @@ const ExercisesCard = ({
     },
   };
   return (
-    <Link href={`/exercises/${link}`} className='outline-[var(--mainColor)] '>
+    <Link href={`${link}`} className='outline-[var(--mainColor)] '>
       <motion.div
         variants={variants}
         initial='start'

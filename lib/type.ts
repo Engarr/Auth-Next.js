@@ -14,6 +14,8 @@ export type ExercisesDataType = {
       muscle1: [string];
       muscle2: [string];
       videoUrl: [string];
+      imageUrl: string;
+      link: string;
     }
   ];
 };
