@@ -5,6 +5,7 @@ import { AiOutlineUser } from 'react-icons/ai';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useScrollContext } from '@/context/scroll-context';
+import cn from 'clsx';
 
 type User =
   | {
@@ -33,10 +34,14 @@ const Logo = ({ user }: LogoProps) => {
   ) : (
     <AiOutlineUser className='text-xl text-[var(--mainColor)] w-full h-full ' />
   );
-  const styleCSS = scrollPosition > 50 ? ' bg-white shadow-md rounded-md ' : '';
   return (
     <motion.div
-      className={`fixed right-1 lg:right-8 top-5  flexCenter z-[100] px-5 py-2 transition-colors duration-300 ${styleCSS}`}
+      className={cn(
+        `fixed right-1 lg:right-8 top-5  flexCenter z-[100] px-5 py-2 transition-colors duration-300 `,
+        {
+          'bg-white shadow-md rounded-md': scrollPosition > 50,
+        }
+      )}
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: 'spring' }}>
