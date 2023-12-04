@@ -87,7 +87,7 @@ const LoginForm = () => {
             ) : isSubmitSuccessful ? (
               <Loader message='Redirection' />
             ) : (
-              'Sign in'
+              'Login'
             )}
           </SubmitBtn>
         </form>
