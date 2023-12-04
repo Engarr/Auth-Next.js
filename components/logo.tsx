@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { AiOutlineUser } from 'react-icons/ai';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useScrollContext } from '@/context/scroll-context';
 
 type User =
   | {
@@ -18,6 +19,8 @@ type LogoProps = {
 };
 
 const Logo = ({ user }: LogoProps) => {
+  const { scrollPosition } = useScrollContext();
+
   const userImage = user?.image ? (
     <Image
       className='rounded-full w-full h-full '
@@ -28,15 +31,16 @@ const Logo = ({ user }: LogoProps) => {
       priority={true}
     />
   ) : (
-    <AiOutlineUser className='text-xl text-[var(--mainColor)] w-full h-full  ' />
+    <AiOutlineUser className='text-xl text-[var(--mainColor)] w-full h-full ' />
   );
+  const styleCSS = scrollPosition > 50 ? ' bg-white shadow-md rounded-md ' : '';
   return (
     <motion.div
-      className='fixed right-1 lg:right-8 top-5  flexCenter '
+      className={`fixed right-1 lg:right-8 top-5  flexCenter z-[100] px-5 py-2 transition-colors duration-300 ${styleCSS}`}
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: 'spring' }}>
-      <motion.div className='mr-4 bg-white  rounded-full lg:h-[55px] lg:w-[55px] h-[45px]  w-[45px]flexCenter cursor-pointer overflow-hidden hidden  sm:flex'>
+      <motion.div className='mr-4 bg-white  rounded-full lg:h-[55px] lg:w-[55px] h-[45px]  w-[45px]flexCenter cursor-pointer overflow-hidden hidden  sm:flex shadow-xl'>
         <motion.div
           className=' rounded-full h-full w-fill flexCenter overflow-hidden outline-[var(--mainColor)] p-2 '
           whileHover={{ scale: 1.05 }}

@@ -4,6 +4,7 @@ import { SessionProvider } from 'next-auth/react';
 import React from 'react';
 import { MenuContextProvider } from './menu-context';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ScrollContextProvider } from './scroll-context';
 
 type AuthProviderType = {
   children: React.ReactNode;
@@ -14,7 +15,9 @@ const AuthProvider = ({ children }: AuthProviderType) => {
   return (
     <SessionProvider>
       <QueryClientProvider client={queryClient}>
-        <MenuContextProvider>{children}</MenuContextProvider>
+        <ScrollContextProvider>
+          <MenuContextProvider>{children}</MenuContextProvider>
+        </ScrollContextProvider>
       </QueryClientProvider>
     </SessionProvider>
   );
