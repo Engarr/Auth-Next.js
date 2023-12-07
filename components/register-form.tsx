@@ -51,7 +51,7 @@ const RegisterUser = () => {
 
   return (
     <motion.div
-      className='absolute h-auto w-[95%] lg:w-[600px] shadow-lg left-1/2 top-[100px] lg:top-[180px] rounded-sm bg-white/40 '
+      className='absolute h-auto w-[95%] lg:w-[600px] shadow-lg left-1/2 top-[100px] lg:top-[180px] rounded-sm bg-[var(--input-bgk)] '
       initial={{ opacity: 0, y: 100, x: '-50%' }}
       animate={{ opacity: 1, y: 0, x: '-50%' }}
       transition={{ delay: 0.3 }}>

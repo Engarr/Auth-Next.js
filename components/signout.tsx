@@ -3,13 +3,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { useMenuContext } from '@/context/menu-context';
+import { MdOutlineLogout } from 'react-icons/md';
 
-type MenuItemProps = {
-  path: string;
-  children: React.ReactNode;
-};
-
-const SignOutBtn = ({ path, children }: MenuItemProps) => {
+const SignOutBtn = () => {
   const toasterHandler = () => {
     toast.success('You have been successfully logout!');
   };
@@ -17,11 +13,12 @@ const SignOutBtn = ({ path, children }: MenuItemProps) => {
 
   return (
     <motion.button
+      tabIndex={-1}
       whileHover={{
         scale: 1.05,
         letterSpacing: '3px',
         originX: 0,
-        color: 'var(--blue)',
+
         transition: { type: 'tween' },
       }}
       whileTap={{
@@ -31,11 +28,14 @@ const SignOutBtn = ({ path, children }: MenuItemProps) => {
       }}
       onClick={() => {
         toasterHandler();
-        signOut({ callbackUrl: path });
+        signOut({ callbackUrl: '/' });
         setIsMenuVisible(false);
       }}
-      className='items-center flex outline-[var(--mainColor)] px-2 text-xl lg:text-lg'>
-      {children}
+      className='items-center flex px-2 text-xl lg:text-lg'>
+      <span className=''>
+        <MdOutlineLogout />
+      </span>
+      <span className='ml-2'>Logout</span>
     </motion.button>
   );
 };

@@ -1,20 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import SignOutBtn from './signout';
-import { useMenuContext } from '@/context/menu-context';
 
 type MenuItemProps = {
-  name: string;
-  icon: React.ReactElement;
-  path: string;
+  children: React.ReactNode;
 };
 
-const variants = {
+export const variants = {
   open: {
     y: 0,
     opacity: 1,
     display: 'flex',
+
     transition: {
       y: { stiffness: 1000, velocity: -100 },
     },
@@ -23,6 +19,7 @@ const variants = {
     y: 50,
     opacity: 0,
     display: 'none',
+
     transition: {
       y: { stiffness: 1000 },
       display: { delay: 0.5 },
@@ -30,20 +27,16 @@ const variants = {
   },
 };
 
-const MenuItem = ({ name, icon, path }: MenuItemProps) => {
-  const { setIsMenuVisible } = useMenuContext();
-
+const MenuItem = ({ children }: MenuItemProps) => {
   return (
     <motion.li
       aria-hidden='true'
       variants={variants}
-      tabIndex={-1}
-      className='mb-2 cursor-pointer tracking-wide text-lg focus:outline-none '
+      className='mb-2 cursor-pointer tracking-wide text-lg outline-[var(--mainColor)] hover:text-[var(--blue)] '
       whileHover={{
         scale: 1.05,
         letterSpacing: '4px',
         originX: 0,
-        color: 'var(--blue)',
         transition: { type: 'tween' },
       }}
       whileTap={{
@@ -51,22 +44,7 @@ const MenuItem = ({ name, icon, path }: MenuItemProps) => {
         letterSpacing: '2px',
         originX: 0,
       }}>
-      {name !== 'Logout' ? (
-        <Link
-          href={path}
-          className='items-center flex outline-[var(--mainColor)] px-2 text-xl lg:text-lg'
-          onClick={() => {
-            setIsMenuVisible(false);
-          }}>
-          <span className=''>{icon}</span>
-          <span className='ml-2'>{name}</span>
-        </Link>
-      ) : (
-        <SignOutBtn path={path}>
-          <span className=''>{icon}</span>
-          <span className='ml-2'>{name}</span>
-        </SignOutBtn>
-      )}
+      {children}
     </motion.li>
   );
 };

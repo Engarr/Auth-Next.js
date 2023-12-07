@@ -35,7 +35,7 @@ const Input = ({
           onChange={onChange}
           placeholder=''
           autoComplete=''
-          className={`shadow-lg p-[0.75rem] w-[90%] lg:w-full rounded-sm outline-none placeholder:text-transparent peer  bg-gray-100/50 ${borderColor} 
+          className={`shadow-lg p-[0.75rem] w-[90%] lg:w-full rounded-sm outline-none placeholder:text-transparent peer  bg-[var(--input-bgk)] ${borderColor} 
         focus-within:border-[var(--mainColorOpacity60)] border-2 transition-all duration-300 `}
         />
         <span
@@ -43,7 +43,7 @@ const Input = ({
         peer-focus-within:-top-[1.65rem]
         peer-focus-within:left-[1.563rem]
         peer-focus-within:text-xs
-        peer-focus-within:bg-gray-100
+        peer-focus-within:bg-[var(--drawBgk)]
         peer-focus-within:px-3
         peer-focus-within:py-[0.1rem]
         peer-focus-within:border-[var(--mainColorOpacity60)]
@@ -53,7 +53,7 @@ const Input = ({
         peer-[&:not(:placeholder-shown)]:-top-[1.65rem] 
         peer-[&:not(:placeholder-shown)]:left-[1.563rem]
         peer-[&:not(:placeholder-shown)]:text-xs
-        peer-[&:not(:placeholder-shown)]:bg-gray-100
+        peer-[&:not(:placeholder-shown)]:bg-[var(--drawBgk)]
         peer-[&:not(:placeholder-shown)]:px-2
         peer-[&:not(:placeholder-shown)]:py-[0.1rem]
         ${spanBorderColor}

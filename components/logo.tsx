@@ -39,13 +39,13 @@ const Logo = ({ user }: LogoProps) => {
       className={cn(
         `fixed right-1 lg:right-8 top-5  flexCenter z-[100] px-5 py-2 transition-colors duration-300 `,
         {
-          'bg-white shadow-md rounded-md': scrollPosition > 50,
+          'bg-[var(--drawBgk)] shadow-md rounded-md': scrollPosition > 50,
         }
       )}
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: 'spring' }}>
-      <motion.div className='mr-4 bg-white  rounded-full lg:h-[55px] lg:w-[55px] h-[45px]  w-[45px]flexCenter cursor-pointer overflow-hidden hidden  sm:flex shadow-xl'>
+      <motion.div className='mr-4 bg-[var(--drawBgk)]  rounded-full lg:h-[55px] lg:w-[55px] h-[45px]  w-[45px]flexCenter cursor-pointer overflow-hidden hidden  sm:flex shadow-xl'>
         <motion.div
           className=' rounded-full h-full w-fill flexCenter overflow-hidden outline-[var(--mainColor)] p-2 '
           whileHover={{ scale: 1.05 }}

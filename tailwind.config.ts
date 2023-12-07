@@ -9,13 +9,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        mainColor: '#9acd32',
-        background: '#f1f5f9',
-        white: '#ffffff',
-        blue: '#1e90ff',
-        mainColorOpacity30: '#9acd324d',
-      },
+      // colors: {
+      //   mainColor: '#9acd32',
+      //   background: '#f1f5f9',
+      //   white: '#ffffff',
+      //   blue: '#1e90ff',
+      //   mainColorOpacity30: '#9acd324d',
+      // },
     },
   },
   plugins: [],

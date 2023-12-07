@@ -16,12 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <AuthProvider>
-        <body className={`${inter.className}`}>
+      <body className={`${inter.className} bg-[var(--background)]`}>
+        <AuthProvider>
           <Toast />
           {children}
-        </body>
-      </AuthProvider>
+        </AuthProvider>
+      </body>
     </html>
   );
 }

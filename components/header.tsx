@@ -53,7 +53,7 @@ const Header = () => {
             isMenuVisible={isMenuVisible}
           />
           <motion.div
-            className='fixed top-0 left-0 bottom-0 w-full lg:w-[300px] bg-white z-[990]'
+            className='fixed top-0 left-0 bottom-0 w-full lg:w-[300px] bg-[var(--drawBgk)] z-[990]'
             variants={sidebar}
           />
         </motion.div>

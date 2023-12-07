@@ -1,7 +1,6 @@
 import React from 'react';
 import { CgGym } from 'react-icons/cg';
 import { BiSolidHome } from 'react-icons/bi';
-import { MdOutlineLogout } from 'react-icons/md';
 import { AiFillGithub, AiOutlineHistory } from 'react-icons/ai';
 
 export const links = [
@@ -11,11 +10,6 @@ export const links = [
     name: 'History',
     link: '/history',
     icon: React.createElement(AiOutlineHistory),
-  },
-  {
-    name: 'Logout',
-    link: '/',
-    icon: React.createElement(MdOutlineLogout),
   },
 ] as const;
 

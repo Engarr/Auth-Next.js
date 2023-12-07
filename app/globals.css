@@ -4,27 +4,28 @@
 
 :root {
   --background: #f1f5f9;
+  --drawBgk: #ffffff;
+  --text-color: #1f1f1f;
   --white: #f0f6fc;
   --blue: #1e90ff;
   --mainColor: #39d353;
   --mainColorOpacity30: #9acd324d;
   --mainColorOpacity60: rgba(154, 205, 50, 0.6);
+  --input-bgk: #f3f4f680;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;w
-  }
-} */
+.dark:root {
+  --background: #3e3e3f;
+  --drawBgk: #575758;
+  --mainColor: #39d353;
+  --text-color: #f0f6fc;
+  --blue: #60a7ee;
+  --input-bgk: #dddee027;
+}
 * {
   margin: 0;
   padding: 0;
 }
-body {
-  background-color: var(--background);
-}
+
 .flexCenter {
   @apply flex items-center justify-center;
 }
