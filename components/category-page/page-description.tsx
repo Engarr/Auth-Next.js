@@ -18,7 +18,7 @@ const PageDescription = ({
         <h2 className='uppercase text-[var(--mainColor)] font-bold text-xl lg:text-2xl mr-4 lg:mb-6 mb-2'>
           {title}
         </h2>
-        <p className=' lg:text-lg'>{description}</p>
+        <p className=' lg:text-lg '>{description}</p>
       </div>
       {imageUrl && (
         <Image
@@ -27,6 +27,7 @@ const PageDescription = ({
           alt='muscle image'
           width={550}
           height={200}
+          className='rounded-md shadow-md'
         />
       )}
     </div>

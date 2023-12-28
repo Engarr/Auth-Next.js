@@ -5,7 +5,7 @@ type WrapperType = {
 
 const CardContentContainer = ({ children }: WrapperType) => {
   return (
-    <div className='shadow-xl rounded-lg bg-white xl:max-w-[1400px] lg:w-full mx-4 my-2'>
+    <div className='shadow-xl rounded-lg bg-[var(--drawBgk)] xl:max-w-[1400px] lg:w-full mx-4 my-2'>
       {children}
     </div>
   );
