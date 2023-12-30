@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import Loader from '../loader';
 
 type PageDescriptionProps = {
   title?: string;
@@ -20,7 +21,7 @@ const PageDescription = ({
         </h2>
         <p className=' lg:text-lg '>{description}</p>
       </div>
-      {imageUrl && (
+      {imageUrl ? (
         <Image
           src={imageUrl}
           priority
@@ -29,6 +30,10 @@ const PageDescription = ({
           height={200}
           className='rounded-md shadow-md'
         />
+      ) : (
+        <div className='w-[100%] h-[200px]'>
+          <Loader message='Loading...' />
+        </div>
       )}
     </div>
   );

@@ -54,7 +54,7 @@ const ExercisesCard = ({
         whileHover='hover'
         whileTap='tap'
         tabIndex={-1}
-        className='w-[300px] h-[250px] overflow-hidden relative mb-3 shadow-xl'>
+        className='w-[300px] h-[250px] overflow-hidden relative mb-3 shadow-xl bg-[var(--drawBgk)]'>
         <Image
           src={imageUrl}
           alt={alt}
