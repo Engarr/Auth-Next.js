@@ -45,7 +45,9 @@ const ExercisesCard = ({
     },
   };
   return (
-    <Link href={`${link}`} className='outline-[var(--mainColor)] '>
+    <Link
+      href={`${link}`}
+      className='outline-[var(--mainColor)] h-[250px]  rounded-md  overflow-hidden'>
       <motion.div
         variants={variants}
         initial='start'
@@ -54,7 +56,7 @@ const ExercisesCard = ({
         whileHover='hover'
         whileTap='tap'
         tabIndex={-1}
-        className='w-[300px] h-[250px] overflow-hidden relative mb-3 shadow-xl bg-[var(--drawBgk)]'>
+        className='w-[300px] h-[250px] relative mb-3 shadow-xl bg-[var(--drawBgk)]'>
         <Image
           src={imageUrl}
           alt={alt}
@@ -62,17 +64,18 @@ const ExercisesCard = ({
           fill
           priority
           sizes='(max-width: 768px) 100vw, 33vw'
-          className='rounded-md'
         />
-        <motion.div
-          className='absolute bottom-0 bg-black/80 w-full text-[var(--white)] text-center py-2 '
-          variants={textVariants}
-          transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
-          <span className='text-[var(--mainColor)] font-semibold pr-2 '>
-            {categoryName}
-          </span>
-          exercises
-        </motion.div>
+
+        <div className='absolute bottom-0 bg-black/80 w-full text-[var(--white)] text-center py-3 '>
+          <motion.div
+            variants={textVariants}
+            transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
+            <span className='text-[var(--mainColor)] font-semibold pr-2 '>
+              {categoryName}
+            </span>
+            exercises
+          </motion.div>
+        </div>
       </motion.div>
     </Link>
   );
