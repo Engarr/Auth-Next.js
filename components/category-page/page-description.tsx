@@ -15,12 +15,13 @@ const PageDescription = ({
 }: PageDescriptionProps) => {
   return (
     <div className=' p-10 flex-col xl:flex-row flexCenter'>
-      <div className='text-left'>
+      <div className='text-left  lg:px-10 pb-5 xl:pb-0'>
         <h2 className='uppercase text-[var(--mainColor)] font-bold text-xl lg:text-2xl mr-4 lg:mb-6 mb-2'>
           {title}
         </h2>
         <p className=' lg:text-lg '>{description}</p>
       </div>
+
       {imageUrl ? (
         <Image
           src={imageUrl}
@@ -31,7 +32,7 @@ const PageDescription = ({
           className='rounded-md shadow-md'
         />
       ) : (
-        <div className='w-[100%] h-[200px]'>
+        <div className='min-w-[540px] h-[360px] bg-white rounded-md shadow-md '>
           <Loader message='Loading...' />
         </div>
       )}
