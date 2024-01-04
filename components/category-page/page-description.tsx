@@ -22,7 +22,7 @@ const PageDescription = ({
         <p className=' lg:text-lg '>{description}</p>
       </div>
 
-      {imageUrl ? (
+      {imageUrl && (
         <Image
           src={imageUrl}
           priority
@@ -31,10 +31,6 @@ const PageDescription = ({
           height={200}
           className='rounded-md shadow-md'
         />
-      ) : (
-        <div className='min-w-[540px] h-[360px] bg-white rounded-md shadow-md '>
-          <Loader message='Loading...' />
-        </div>
       )}
     </div>
   );

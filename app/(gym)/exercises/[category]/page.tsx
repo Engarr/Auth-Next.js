@@ -16,13 +16,6 @@ const Page = () => {
   const { data, isLoading, isError }: UseQueryResult<ExercisesDataType> =
     useQuery(QUERY_KEY_EXERCISES, () => fetchExercises(category as string));
 
-  if (isLoading) {
-    return (
-      <div className='absolute top-[40%] left-1/2'>
-        <Loader message='Loading...' />
-      </div>
-    );
-  }
   const { title, description, imageUrl } = data?.description[0] || {};
 
   return (
