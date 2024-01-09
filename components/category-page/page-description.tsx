@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-import Loader from '../loader';
 
 type PageDescriptionProps = {
   title?: string;

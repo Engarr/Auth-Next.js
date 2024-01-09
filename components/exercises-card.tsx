@@ -29,8 +29,10 @@ const ExercisesCard = ({
       x: 0,
       transition: { delay: index * 0.1 },
     }),
+  };
+  const imageVariants = {
     hover: {
-      scale: 1.02,
+      scale: 0.95,
     },
     tap: {
       scale: 0.98,
@@ -54,17 +56,23 @@ const ExercisesCard = ({
         animate='end'
         custom={index}
         whileHover='hover'
+        whileFocus='focus'
         whileTap='tap'
         tabIndex={-1}
-        className='w-[300px] h-[250px] relative mb-3 shadow-xl bg-[var(--drawBgk)]'>
-        <Image
-          src={imageUrl}
-          alt={alt}
-          quality={80}
-          fill
-          priority
-          sizes='(max-width: 768px) 100vw, 33vw'
-        />
+        className='w-[300px] h-[250px] relative mb-3 shadow-xl bg-white'>
+        <motion.div
+          className='w-full h-full'
+          variants={imageVariants}
+          transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
+          <Image
+            src={imageUrl}
+            alt={alt}
+            quality={80}
+            fill
+            priority
+            sizes='(max-width: 768px) 100vw, 33vw'
+          />
+        </motion.div>
 
         <div className='absolute bottom-0 bg-black/80 w-full text-[var(--white)] text-center py-3 '>
           <motion.div
