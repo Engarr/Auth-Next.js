@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UseFormRegisterReturn } from 'react-hook-form';
+import cn from 'clsx';
 
 type InpuType = {
   type: string;
@@ -21,10 +22,7 @@ const Input = ({
   register,
   onChange,
 }: InpuType) => {
-  const borderColor = !errorMessage ? 'border-gray-200' : 'border-red-400 ';
-  const spanBorderColor = !errorMessage
-    ? 'border-gray-200'
-    : 'peer-[&:not(:placeholder-shown)]:border-red-400';
+ 
   return (
     <div className='w-full mb-7 lg:mb-10 '>
       <label htmlFor={name} className='relative w-full text-sm lg:text-sm'>
@@ -35,11 +33,15 @@ const Input = ({
           onChange={onChange}
           placeholder=''
           autoComplete=''
-          className={`shadow-lg p-[0.75rem] w-[90%] lg:w-full rounded-sm outline-none placeholder:text-transparent peer  bg-[var(--input-bgk)] ${borderColor} 
-        focus-within:border-[var(--mainColorOpacity60)] border-2 transition-all duration-300 `}
+          className={cn(
+            `shadow-lg p-[0.75rem] w-[90%] lg:w-full rounded-sm outline-none placeholder:text-transparent peer  bg-[var(--input-bgk)] 
+        focus-within:border-[var(--mainColorOpacity60)] border-2 transition-all duration-300 border-gray-200`,
+            { 'border-red-400': errorMessage }
+          )}
         />
         <span
-          className={`absolute left-[1.25rem] -top-[0.20rem] transition-all cursor-text duration-300 rounded-sm
+          className={cn(
+            `absolute left-[1.25rem] -top-[0.20rem] transition-all cursor-text duration-300 rounded-sm
         peer-focus-within:-top-[1.65rem]
         peer-focus-within:left-[1.563rem]
         peer-focus-within:text-xs
@@ -56,8 +58,10 @@ const Input = ({
         peer-[&:not(:placeholder-shown)]:bg-[var(--drawBgk)]
         peer-[&:not(:placeholder-shown)]:px-2
         peer-[&:not(:placeholder-shown)]:py-[0.1rem]
-        ${spanBorderColor}
-        peer-[&:not(:placeholder-shown)]:border-2`}>
+      
+        peer-[&:not(:placeholder-shown)]:border-2 border-gray-200`,
+            { 'peer-[&:not(:placeholder-shown)]:border-red-400': errorMessage }
+          )}>
           {spanName}
         </span>
       </label>

@@ -56,7 +56,6 @@ const ExercisesCard = ({
         animate='end'
         custom={index}
         whileHover='hover'
-        whileFocus='focus'
         whileTap='tap'
         tabIndex={-1}
         className='w-[300px] h-[250px] relative mb-3 shadow-xl bg-white'>
