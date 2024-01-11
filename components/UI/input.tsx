@@ -22,7 +22,6 @@ const Input = ({
   register,
   onChange,
 }: InpuType) => {
- 
   return (
     <div className='w-full mb-7 lg:mb-10 '>
       <label htmlFor={name} className='relative w-full text-sm lg:text-sm'>
@@ -35,8 +34,8 @@ const Input = ({
           autoComplete=''
           className={cn(
             `shadow-lg p-[0.75rem] w-[90%] lg:w-full rounded-sm outline-none placeholder:text-transparent peer  bg-[var(--input-bgk)] 
-        focus-within:border-[var(--mainColorOpacity60)] border-2 transition-all duration-300 border-gray-200`,
-            { 'border-red-400': errorMessage }
+        focus-within:border-[var(--mainColorOpacity60)] border-2 transition-all duration-300 border-[var(--input-border)]`,
+            { 'border-[var(--input-error)]': errorMessage }
           )}
         />
         <span
@@ -59,8 +58,11 @@ const Input = ({
         peer-[&:not(:placeholder-shown)]:px-2
         peer-[&:not(:placeholder-shown)]:py-[0.1rem]
       
-        peer-[&:not(:placeholder-shown)]:border-2 border-gray-200`,
-            { 'peer-[&:not(:placeholder-shown)]:border-red-400': errorMessage }
+        peer-[&:not(:placeholder-shown)]:border-2 border-[var(--input-border)]`,
+            {
+              'peer-[&:not(:placeholder-shown)]:border-[var(--input-error)]':
+                errorMessage,
+            }
           )}>
           {spanName}
         </span>
@@ -68,7 +70,7 @@ const Input = ({
       <AnimatePresence>
         {errorMessage && (
           <motion.p
-            className='mt-2 text-red-400 text-sm'
+            className='mt-2 text-[var(--input-error)] text-sm'
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}>

@@ -12,6 +12,8 @@
   --mainColorOpacity30: #9acd324d;
   --mainColorOpacity60: rgba(154, 205, 50, 0.6);
   --input-bgk: #f3f4f680;
+  --input-error: rgb(248 113 113);
+  --input-border: rgb(229 231 235);
 }
 .dark:root {
   --background: #3e3e3f;
@@ -20,6 +22,8 @@
   --text-color: #f0f6fc;
   --blue: #60a7ee;
   --input-bgk: #dddee027;
+  --input-error: rgb(248 113 113);
+  --input-border: rgb(229 231 235);
 }
 * {
   margin: 0;
