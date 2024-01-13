@@ -58,7 +58,7 @@ const ExercisesCard = ({
         whileHover='hover'
         whileTap='tap'
         tabIndex={-1}
-        className='w-[300px] h-[250px] relative mb-3 shadow-xl bg-white'>
+        className='w-[300px] h-[250px] relative mb-3 shadow-xl bg-[var(--exercises-card-bg)]'>
         <motion.div
           className='w-full h-full'
           variants={imageVariants}
