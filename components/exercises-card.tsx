@@ -73,7 +73,7 @@ const ExercisesCard = ({
           />
         </motion.div>
 
-        <div className='absolute bottom-0 bg-black/80 w-full text-[var(--white)] text-center py-3 '>
+        <div className='absolute bottom-0 bg-[var(--black-80)] w-full text-[var(--white)] text-center py-3 '>
           <motion.div
             variants={textVariants}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}>

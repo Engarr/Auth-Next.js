@@ -10,7 +10,7 @@ const Modal = ({ isVisible, visibleAction }: ModalType) => {
     <>
       {isVisible && (
         <div
-          className='fixed top-0 left-0 h-[100vh] w-full bg-black/10 z-[800]'
+          className='fixed top-0 left-0 h-[100vh] w-full bg-[var(--black-10)] z-[800]'
           onClick={() => visibleAction((prev) => !prev)}
         />
       )}

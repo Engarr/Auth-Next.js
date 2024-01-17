@@ -24,12 +24,12 @@ const Loader = ({ message }: PropsType) => {
   const dotNumber = 3;
   const dotArr = Array.from({ length: dotNumber }, (_, index) => index);
   return (
-    <div className={`text-black text-sm flex items-center relative`}>
+    <div className={`text-[var(--black)] text-sm flex items-center relative`}>
       {message}
       {dotArr.map((dot, index) => (
         <motion.div
           key={dot}
-          className='h-[2px] w-[2px] bg-black rounded-full mx-[3px] relative -bottom-[3px]'
+          className='h-[2px] w-[2px] bg-[var(--black)] rounded-full mx-[3px] relative -bottom-[3px]'
           variants={variants}
           initial='start'
           animate='animate'
