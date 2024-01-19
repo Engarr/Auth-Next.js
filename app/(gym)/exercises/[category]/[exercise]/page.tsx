@@ -1,7 +1,16 @@
+import CardContentContainer from '@/components/card-context-container';
 import React from 'react';
 
-const Page = () => {
-  return <div>page</div>;
+type ExercisesDetailsType = {
+  params: { category: string; exercise: string };
 };
 
-export default Page;
+const ExercisesDetails = ({ params }: ExercisesDetailsType) => {
+  return (
+    <section className='relative flexCenter mt-28 flex-col'>
+      <CardContentContainer>{params.exercise}</CardContentContainer>
+    </section>
+  );
+};
+
+export default ExercisesDetails;
