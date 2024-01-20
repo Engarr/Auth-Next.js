@@ -419,7 +419,7 @@ export const exercises = [
   },
 ];
 
-export const exercisesDescription = [
+export const categoryDescriptions = [
   {
     category: 'chest',
     title: 'chest muscles',

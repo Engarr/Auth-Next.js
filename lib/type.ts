@@ -19,3 +19,12 @@ export type ExercisesDataType = {
     }
   ];
 };
+export type ExerciseDescription = {
+  exerciseName: string;
+  category: string;
+  muscle1: string[];
+  muscle2?: string[];
+  imageUrl: string;
+  videoUrl: string[];
+  link: string;
+};

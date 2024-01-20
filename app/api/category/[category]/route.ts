@@ -1,4 +1,4 @@
-import { exercises, exercisesDescription } from '@/lib/data';
+import { exercises, categoryDescriptions } from '@/lib/data';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
 export const GET = async (req: Request, { params }: Params) => {
@@ -8,7 +8,7 @@ export const GET = async (req: Request, { params }: Params) => {
     const categoryExercises = exercises.filter(
       (exercises) => exercises.category === category
     );
-    const categoryDescription = exercisesDescription.filter(
+    const categoryDescription = categoryDescriptions.filter(
       (exercises) => exercises.category === category
     );
     const response = {
