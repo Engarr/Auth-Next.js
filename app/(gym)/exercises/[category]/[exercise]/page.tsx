@@ -1,6 +1,8 @@
 'use client';
 
 import CardContentContainer from '@/components/card-context-container';
+import ExercisesDescription from '@/components/exercises-description-page/exercises-description';
+import Loader from '@/components/loader';
 import {
   QUERY_KEY_EXERCISES_DESC,
   fetchExerciseDescription,
@@ -15,23 +17,34 @@ type ExercisesDetailsType = {
 
 const ExercisesDetails = ({ params }: ExercisesDetailsType) => {
   const { exercise } = params;
-  const { data, isLoading, isError }: UseQueryResult<ExerciseDescription> =
+  const { data, isLoading, isError }: UseQueryResult<ExerciseDescription[]> =
     useQuery(QUERY_KEY_EXERCISES_DESC, () =>
       fetchExerciseDescription(exercise as string)
     );
-  console.log(exercise);
-  if (data) {
-    console.log(data);
+
+  if (isLoading) {
+    return (
+      <div className='relative  mt-36 '>
+        <Loader message='Loading' />
+      </div>
+    );
   }
+  if (!data) {
+    return (
+      <div className='relative  mt-36 '>
+        <p>ERROR</p>
+      </div>
+    );
+  }
+
   return (
     <section className='relative flexCenter mt-28 flex-col'>
       <CardContentContainer>
-        <div>
-          <h2 className='uppercase  font-bold text-xl lg:text-2xl mr-4 lg:mb-6 mb-2'>
-            Exercise name
-            <span className='text-[var(--mainColor)]'> {exercise}</span>
-          </h2>
-        </div>
+        <ExercisesDescription
+          exerciseName={data[0].exerciseName}
+          muscle1={data[0].muscle1}
+          muscle2={data[0].muscle2}
+        />
         <div></div>
       </CardContentContainer>
     </section>

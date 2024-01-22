@@ -7,6 +7,7 @@ import { ExercisesDataType } from '@/lib/type';
 import CardContentContainer from '@/components/card-context-container';
 import PageDescription from '@/components/category-page/page-description';
 import ExercisesSection from '@/components/category-page/category-exercises-section';
+import Loader from '@/components/loader';
 type ExercisesCategory = {
   params: {
     category: string;
@@ -16,10 +17,20 @@ type ExercisesCategory = {
 const ExercisesCategory = ({ params }: ExercisesCategory) => {
   const { category } = params;
 
-  const { data, isLoading, isError }: UseQueryResult<ExercisesDataType> =
-    useQuery(QUERY_KEY_EXERCISES, () => fetchExercises(category as string));
+  const { data, isLoading }: UseQueryResult<ExercisesDataType> = useQuery(
+    QUERY_KEY_EXERCISES,
+    () => fetchExercises(category as string)
+  );
 
-  const { title, description, imageUrl } = data?.description[0] || {};
+  const { title, description, imageUrl } = data?.description?.[0] || {};
+
+  if (isLoading) {
+    return (
+      <div className='relative  mt-36 '>
+        <Loader message='Loading' />
+      </div>
+    );
+  }
 
   return (
     <section className='relative flexCenter mt-28 flex-col'>
@@ -32,7 +43,7 @@ const ExercisesCategory = ({ params }: ExercisesCategory) => {
       </CardContentContainer>
       <CardContentContainer>
         <ExercisesSection
-          category={data?.description[0].category}
+          category={data?.description?.[0].category}
           exercises={data?.exercises}
         />
       </CardContentContainer>
