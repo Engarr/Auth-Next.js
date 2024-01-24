@@ -1,50 +1,53 @@
 import React from 'react';
 import CardContentContainer from '../card-context-container';
+import Image from 'next/image';
 
 type ExercisesDescriptionProps = {
-  exerciseName: string;
   muscle1: string[];
   muscle2?: string[];
+  imageUrl: string;
 };
 
 const ExercisesDescription = ({
-  exerciseName,
   muscle1,
   muscle2,
+  imageUrl,
 }: ExercisesDescriptionProps) => {
   return (
-    <div className=' p-10'>
-      <h2 className='uppercase  font-bold text-sm lg:text-xl mr-4 lg:mb-6 mb-2'>
-        Exercise name:
-        <span className='text-[var(--mainColor)]'> {exerciseName}</span>
-      </h2>
-      <CardContentContainer style='p-5 mx-0'>
-        <ul className='list-disc px-5 text-xs md:text-base'>
-          <p className='text-[var(--mainColor)] font-semibold text-sm md:text-lg'>
-            Main muscles involved in movement:
-          </p>
-          {muscle1 &&
-            muscle1 &&
-            muscle1.map((m) => (
+    <CardContentContainer style='px-5 py-10 mx-0 w-full xl:max-w-[700px] flex items-center justify-center flex-col lg:flex-row w-full'>
+      <ul className='list-disc px-5 text-xs md:text-base'>
+        <p className='text-[var(--mainColor)] font-semibold text-sm md:text-lg'>
+          Main muscles involved in movement:
+        </p>
+        {muscle1 &&
+          muscle1 &&
+          muscle1.map((m) => (
+            <li className='font-light italic' key={m}>
+              {m}
+            </li>
+          ))}
+        {muscle2 && muscle2 && (
+          <>
+            <p className='text-[var(--mainColor)] font-semibold'>
+              Accessory muscles
+            </p>
+            {muscle2.map((m) => (
               <li className='font-light italic' key={m}>
                 {m}
               </li>
             ))}
-          {muscle2 && muscle2 && (
-            <>
-              <p className='text-[var(--mainColor)] font-semibold'>
-                Accessory muscles
-              </p>
-              {muscle2.map((m) => (
-                <li className='font-light italic' key={m}>
-                  {m}
-                </li>
-              ))}
-            </>
-          )}
-        </ul>
-      </CardContentContainer>
-    </div>
+          </>
+        )}
+      </ul>
+      <div className='w-[300px] h-[250px] relative mb-3 shadow-xl bg-[var(--exercises-card-bg)] overflow-hidden rounded-md'>
+        <Image
+          src={imageUrl}
+          fill
+          alt='exercises-image '
+          sizes='(max-width: 768px) 100vw, 33vw'
+        />
+      </div>
+    </CardContentContainer>
   );
 };
 

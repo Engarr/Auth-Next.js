@@ -2,6 +2,7 @@
 
 import CardContentContainer from '@/components/card-context-container';
 import ExercisesDescription from '@/components/exercises-description-page/exercises-description';
+import ExercisesMedia from '@/components/exercises-description-page/exercises-media';
 import Loader from '@/components/loader';
 import {
   QUERY_KEY_EXERCISES_DESC,
@@ -36,16 +37,24 @@ const ExercisesDetails = ({ params }: ExercisesDetailsType) => {
       </div>
     );
   }
+  console.log(data);
 
   return (
-    <section className='relative flexCenter mt-28 flex-col'>
-      <CardContentContainer>
+    <section className='relative flexCenter mt-28 flex-col '>
+      <CardContentContainer style='flex items-center justify-center flex-col w-full'>
+        <h2 className='uppercase  font-bold text-sm lg:text-xl mr-4 lg:mb-6 mb-2 p-5'>
+          Exercise name:{' '}
+          <span className='text-[var(--mainColor)] tracking-wide	'>
+            {data[0]?.exerciseName}
+          </span>
+        </h2>
+
         <ExercisesDescription
-          exerciseName={data[0].exerciseName}
           muscle1={data[0].muscle1}
           muscle2={data[0].muscle2}
+          imageUrl={data[0].imageUrl}
         />
-        <div></div>
+        <ExercisesMedia videoUrl={data[0].videoUrl} />
       </CardContentContainer>
     </section>
   );
