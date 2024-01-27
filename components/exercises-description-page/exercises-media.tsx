@@ -8,7 +8,7 @@ type ExercisesMedia = {
 const ExercisesMedia = ({ videoUrl }: ExercisesMedia) => {
   return (
     <CardContentContainer style='px-5 py-10 flex flex-wrap items-center justify-center flex-col lg:flex-row w-full'>
-      {videoUrl.map((v) => (
+      {videoUrl?.map((v) => (
         <div
           key={v}
           className='w-[550px] h-[350px] relative mb-3 shadow-xl bg-[var(--exercises-card-bg)] overflow-hidden rounded-md mx-10'>

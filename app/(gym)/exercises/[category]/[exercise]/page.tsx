@@ -37,7 +37,6 @@ const ExercisesDetails = ({ params }: ExercisesDetailsType) => {
       </div>
     );
   }
-  console.log(data);
 
   return (
     <section className='relative flexCenter mt-28 flex-col '>
@@ -50,11 +49,11 @@ const ExercisesDetails = ({ params }: ExercisesDetailsType) => {
         </h2>
 
         <ExercisesDescription
-          muscle1={data[0].muscle1}
-          muscle2={data[0].muscle2}
-          imageUrl={data[0].imageUrl}
+          muscle1={data[0]?.muscle1}
+          muscle2={data[0]?.muscle2}
+          imageUrl={data[0]?.imageUrl}
         />
-        <ExercisesMedia videoUrl={data[0].videoUrl} />
+        <ExercisesMedia videoUrl={data[0]?.videoUrl} />
       </CardContentContainer>
     </section>
   );
