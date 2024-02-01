@@ -15,7 +15,7 @@ const ExercisesDescription = ({
 }: ExercisesDescriptionProps) => {
   return (
     <CardContentContainer style='px-5 py-10 mx-0 w-full xl:max-w-[700px] flex items-center justify-center flex-col lg:flex-row w-full'>
-      <ul className='list-disc px-5 text-xs md:text-base'>
+      <ul className='list-disc px-5 text-xs md:text-base mb-5 lg:mb-0'>
         <p className='text-[var(--mainColor)] font-semibold text-sm md:text-lg'>
           Main muscles involved in movement:
         </p>

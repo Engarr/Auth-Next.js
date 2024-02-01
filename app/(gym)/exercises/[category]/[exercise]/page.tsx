@@ -43,7 +43,7 @@ const ExercisesDetails = ({ params }: ExercisesDetailsType) => {
       <CardContentContainer style='flex items-center justify-center flex-col w-full'>
         <h2 className='uppercase  font-bold text-sm lg:text-xl mr-4 lg:mb-6 mb-2 p-5'>
           Exercise name:{' '}
-          <span className='text-[var(--mainColor)] tracking-wide	'>
+          <span className='text-[var(--mainColor)] tracking-wider 	'>
             {data[0]?.exerciseName}
           </span>
         </h2>
